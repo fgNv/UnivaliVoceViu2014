@@ -177,6 +177,7 @@
     <Compile Include="Controllers\Generated\AccountController.cs" />
     <Compile Include="Controllers\Generated\HomeController.cs" />
     <Compile Include="Exceptions\ValidationException.cs" />
+    <Compile Include="Filters\AuthorizeByClaimAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -241,7 +242,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Home\" />
     <Folder Include="Areas\Advertiser\" />
-    <Folder Include="Filters\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
