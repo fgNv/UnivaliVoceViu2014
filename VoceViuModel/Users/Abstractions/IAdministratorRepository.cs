@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VoceViuModel.Users.Abstractions
 {
-    public interface IAdministratorRepository
+    public interface IAdministratorRepository : IRepository
     {
         Administrator Get(int id);
         Administrator Get(string userName);

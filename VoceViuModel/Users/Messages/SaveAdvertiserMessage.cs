@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VoceViuModel.Users
+namespace VoceViuModel.Users.Messages
 {
-    public class Advertiser
+    public class SaveAdvertiserMessage
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }

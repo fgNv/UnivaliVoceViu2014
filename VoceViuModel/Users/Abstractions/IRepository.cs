@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace VoceViuModel.Users.Abstractions
 {
-    public interface IAdvertiserRepository : IRepository
+    public interface IRepository
     {
-        Advertiser Get(string userName);
-        Advertiser Get(int id);
-        void Add(Advertiser advertiser);
-
+        void SaveChanges();
     }
 }

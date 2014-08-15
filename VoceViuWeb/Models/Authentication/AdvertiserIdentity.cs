@@ -14,5 +14,18 @@ namespace VoceViuWeb.Models.Authentication
         {
             get { return base.Id.ToString(); }
         }
+
+
+        public string UserName
+        {
+            get
+            {
+                return this.Email;
+            }
+            set
+            {
+                this.Email = value;
+            }
+        }
     }
 }

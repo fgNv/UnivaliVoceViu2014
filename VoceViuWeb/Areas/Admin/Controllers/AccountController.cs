@@ -6,8 +6,11 @@ using System.Web.Mvc;
 
 namespace VoceViuWeb.Areas.Admin.Controllers
 {
-    public class AdminAccountController : Controller
+    public class AccountController : Controller
     {
-
+        public ViewResult Login()
+        {
+            return View();
+        }
     }
 }
