@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity.ModelConfiguration;
 using VoceViuModel.Users;
+using System.Data.Entity.Infrastructure.Annotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace VoceViuPersistence.Mappings.Users
 {
@@ -14,6 +16,11 @@ namespace VoceViuPersistence.Mappings.Users
         {
             ToTable("VV_Advertisers");
             HasKey(a => a.Id);
+
+            var emailIndex = new IndexAnnotation(new IndexAttribute("uniqueEmail", 1) { IsUnique = true });
+            Property(a => a.Email).HasColumnAnnotation("Index", emailIndex).HasMaxLength(100);
+
+            Ignore(a => a.UserName);
         }
     }
 }

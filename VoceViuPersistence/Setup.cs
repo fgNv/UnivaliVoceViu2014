@@ -13,7 +13,9 @@ namespace VoceViuPersistence
     {
         public static void RegisterPersistenceDependencies(this Container container, Lifestyle lifestyle)
         {
-            container.Register<VoceViuDbContext>(() => new VoceViuDbContext()  ,lifestyle);
+             var conn = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+
+            container.Register<VoceViuDbContext>(() => new VoceViuDbContext(conn)  ,lifestyle);
             container.Register<IAdvertiserRepository, AdvertiserRepository>(lifestyle);
             container.Register<IAdministratorRepository, AdministratorRepository>(lifestyle);
         }

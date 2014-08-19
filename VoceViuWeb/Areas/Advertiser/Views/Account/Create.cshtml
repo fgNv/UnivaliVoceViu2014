@@ -5,42 +5,52 @@
 
 <article data-ng-controller="NewAdvertiserAccountController" data-ng-class="{'loading' : pendingRequests > 0}">
     <h2>Criar nova conta de anunciante</h2>
-    <div class="row">
-        <div class="col-md-5">
-            <label>
-                Nome
-                <input class="form-control" type="text" data-ng-model="form.Name" />
-            </label>
+    <section class="form-horizontal">
+        <div class="row">
+            <div class="col-md-5 form-group">
+                <label class="col-md-8" for="nome">
+                    Nome
+                </label>
+                <div class="col-md-10">
+                    <input class="form-control" type="text" data-ng-model="form.Name" id="nome"/>
+                </div>
+                
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-5">
-            <label>
-                E-mail
-                <input class="form-control" type="text" data-ng-model="form.Email" />
-            </label>
+        <div class="row">
+            <div class="col-md-5 form-group">
+                <label class="col-md-8" for="email">
+                    E-mail
+                </label>
+                <div class="col-md-10">
+                    <input class="form-control" type="text" data-ng-model="form.Email" id="email"/>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-5">
-            <label>
-                Senha
-                <input class="form-control" type="text" data-ng-model="form.Password" />
-            </label>
+        <div class="row">
+            <div class="col-md-5 form-group">
+                <label for="senha" class="col-md-8">
+                    Senha
+                </label>
+                <div class="col-md-10">
+                    <input class="form-control" type="password" data-ng-model="form.Password" id="senha" />
+                </div>                
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-5">
-            <label>
-                Confirmação da senha
-                <input class="form-control" type="text" data-ng-model="form.PasswordConfirmation" />
-            </label>
+        <div class="row">
+            <div class="col-md-5 form-group">
+                <label class="col-md-8" for="confirmacao">
+                    Confirmação da senha
+                </label>
+                <div class="col-md-10">
+                    <input class="form-control" type="password" data-ng-model="form.PasswordConfirmation" id="confirmacao" />
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-5">
-            <button type="button" class="btn btn-primary" data-ng-click="submit()">Cadastrar </button>
+        <div class="row">
+            <div class="col-md-5">
+                <button type="button" class="btn btn-primary" data-ng-click="submit()">Cadastrar </button>
+            </div>
         </div>
-    </div>
-
+    </section>
 </article>
