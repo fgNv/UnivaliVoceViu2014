@@ -9,5 +9,9 @@ namespace VoceViuModel.Users.Abstractions
     public interface IRepository
     {
         void SaveChanges();
+
+        Task SaveChangesAsync();
+
+        void Dispose();
     }
 }

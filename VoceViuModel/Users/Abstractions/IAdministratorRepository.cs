@@ -11,5 +11,8 @@ namespace VoceViuModel.Users.Abstractions
         Administrator Get(int id);
         Administrator Get(string userName);
         void Add(Administrator administrator);
+        void Remove(Administrator administrator);
+        Task<Administrator> GetAsync(int id);
+        Task<Administrator> GetAsync(string username);
     }
 }

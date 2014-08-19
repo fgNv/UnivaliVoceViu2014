@@ -10,7 +10,10 @@ namespace VoceViuModel.Users.Abstractions
     {
         Advertiser Get(string userName);
         Advertiser Get(int id);
+        IEnumerable<Advertiser> GetAll();
+        Task<Advertiser> GetAsync(string userName);
+        Task<Advertiser> GetAsync(int id);
         void Add(Advertiser advertiser);
-
+        void Remove(Advertiser advertiser);
     }
 }

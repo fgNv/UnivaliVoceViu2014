@@ -18,17 +18,17 @@ namespace VoceViuWeb.Services
         public const string PROFILE_TYPE_ADVERTISER = "advertiser";
 
         private readonly IAuthenticationManager _authenticationManager;
-        private readonly UserManager<AdministratorIdentity> _administratorManager;
-        private readonly UserManager<AdvertiserIdentity> _advertiserManager;
+        private readonly UserManager<Administrator> _administratorManager;
+        private readonly UserManager<Advertiser> _advertiserManager;
 
-        public SignInService(IAuthenticationManager authenticationManager, UserManager<AdministratorIdentity> administratorManager, UserManager<AdvertiserIdentity> advertiserManager)
+        public SignInService(IAuthenticationManager authenticationManager, UserManager<Administrator> administratorManager, UserManager<Advertiser> advertiserManager)
         {
             _authenticationManager = authenticationManager;
             _administratorManager = administratorManager;
             _advertiserManager = advertiserManager;
         }
 
-        public async Task SignInAdministratorAsync(AdministratorIdentity user, bool isPersistent)
+        public async Task SignInAdministratorAsync(Administrator user, bool isPersistent)
         {
             _authenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
             var identity = await _administratorManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
@@ -37,7 +37,7 @@ namespace VoceViuWeb.Services
             _authenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = isPersistent }, identity);
         }
 
-        public async Task SignInAdvertiserAsync(AdvertiserIdentity user, bool isPersistent)
+        public async Task SignInAdvertiserAsync(Advertiser user, bool isPersistent)
         {
             _authenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
             var identity = await _advertiserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);

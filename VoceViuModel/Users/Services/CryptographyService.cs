@@ -11,7 +11,8 @@ namespace VoceViuModel.Users.Services
     {
         public string Encrypt(string input)
         {
-            return Crypter.Blowfish.Crypt(input);
+            var salt = "$2a$06$NRL3FWgZ/Ojnas0GC242zO";
+            return Crypter.Blowfish.Crypt(input, salt);
         }
     }
 }

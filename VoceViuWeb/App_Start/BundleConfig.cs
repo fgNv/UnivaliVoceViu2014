@@ -15,7 +15,8 @@ namespace VoceViuWeb
                         "~/Scripts/Vendors/Angular/angular-resource.js",
                         "~/Scripts/App/app.js",
                         "~/Scripts/App/Resources/*.js",
-                        "~/Scripts/App/Controllers/*.js"
+                        "~/Scripts/App/Controllers/*.js",
+                        "~/Scripts/App/Models/*.js"
                         ));
 
             bundles.Add(new ScriptBundle("~/bundles/utilities").Include(

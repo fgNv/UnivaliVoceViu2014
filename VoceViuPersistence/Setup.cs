@@ -9,9 +9,9 @@ using VoceViuPersistence.Repositories;
 
 namespace VoceViuPersistence
 {
-    public class Setup
+    public static class Setup
     {
-        public void RegisterDependencies(Container container, Lifestyle lifestyle)
+        public static void RegisterPersistenceDependencies(this Container container, Lifestyle lifestyle)
         {
             container.Register<VoceViuDbContext>(() => new VoceViuDbContext()  ,lifestyle);
             container.Register<IAdvertiserRepository, AdvertiserRepository>(lifestyle);

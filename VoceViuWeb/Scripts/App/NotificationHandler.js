@@ -5,9 +5,18 @@ var NotificationHandler = function () {
     this.ErrorType = "error";
     this.SuccessType = "success";
 
+    this.AddSuccessNotificiation = function (title) {
+
+        new PNotify({
+            title: title,
+            text: '',
+            type: "success"
+        });
+
+    };
+
     this.AddNotificiation = function (title, messages, type) {
 
-        var messageCount = messages.length;
         var messages = messages.join("\n");
 
         new PNotify({
@@ -15,8 +24,5 @@ var NotificationHandler = function () {
             text: messages,
             type: type
         });
-
-        for (var i = 0; messageCount < i; i++)
-            alert(message);
     };
 }

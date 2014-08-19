@@ -7,6 +7,6 @@ namespace VoceViuWeb.Models.Authentication
 {
     public class AuthenticateResponse
     {
-        public string RedirectUrl { get; set; }
+        public string ReturnUrl { get; set; }
     }
 }

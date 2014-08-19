@@ -27,6 +27,7 @@ namespace VoceViuModel.Users.Services
             newAdvertiser.Email = message.Email;
 
             _advertiserRepository.Add(newAdvertiser);
+            _advertiserRepository.SaveChanges();
 
             return newAdvertiser;
         }

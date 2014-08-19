@@ -5,12 +5,11 @@
 (function () {
 
     var notificationHandler = new NotificationHandler();
-
-    app.controller("AdminAuthenticationController", ["$scope", "AdminResource", function ($scope, adminResource) {
+        
+    app.controller("AdminAuthenticationController", ["$scope", "AccountResource", function ($scope, accountResource) {
 
         $scope.userName = "";
         $scope.password = "";
-        $scope.passwordConfirmation = "";
 
         var _validate = function(){
             var errors = [];
@@ -20,9 +19,6 @@
             
             if(!$scope.password)
                 errors.push("Deve-se fornecer uma senha");
-
-            if($scope.password != $scope.passwordConfirmation)
-                errors.push("A senha e a confirmação não coincidem");
 
             return errors;
         };

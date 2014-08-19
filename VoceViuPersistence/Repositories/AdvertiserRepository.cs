@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VoceViuModel.Users.Abstractions;
+using System.Data.Entity;
 
 namespace VoceViuPersistence.Repositories
 {
@@ -34,6 +35,36 @@ namespace VoceViuPersistence.Repositories
         public void SaveChanges()
         {
             _context.SaveChanges();
+        }
+
+        public Task<VoceViuModel.Users.Advertiser> GetAsync(string userName)
+        {
+            return _context.Advertisers.FirstOrDefaultAsync(a => a.UserName == userName);
+        }
+
+        public Task<VoceViuModel.Users.Advertiser> GetAsync(int id)
+        {
+            return _context.Advertisers.FirstOrDefaultAsync(a => a.Id == id);
+        }
+
+        public void Remove(VoceViuModel.Users.Advertiser advertiser)
+        {
+            _context.Advertisers.Remove(advertiser);
+        }
+
+        public void Dispose()
+        {
+            _context.Dispose();
+        }
+
+        public Task SaveChangesAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<VoceViuModel.Users.Advertiser> GetAll()
+        {
+            return _context.Advertisers;
         }
     }
 }

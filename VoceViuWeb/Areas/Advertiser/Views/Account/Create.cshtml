@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Criar conta de anunciante ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<article data-ng-controller="NewAdvertiserAccountController" data-ng-class="{'loading' : pendingRequests > 0}">
+    <h2>Criar nova conta de anunciante</h2>
+    <div class="row">
+        <div class="col-md-5">
+            <label>
+                Nome
+                <input class="form-control" type="text" data-ng-model="form.Name" />
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">
+            <label>
+                E-mail
+                <input class="form-control" type="text" data-ng-model="form.Email" />
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">
+            <label>
+                Senha
+                <input class="form-control" type="text" data-ng-model="form.Password" />
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">
+            <label>
+                Confirmação da senha
+                <input class="form-control" type="text" data-ng-model="form.PasswordConfirmation" />
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">
+            <button type="button" class="btn btn-primary" data-ng-click="submit()">Cadastrar </button>
+        </div>
+    </div>
+
+</article>
