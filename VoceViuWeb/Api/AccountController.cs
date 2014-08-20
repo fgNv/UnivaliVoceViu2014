@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
+using VoceViuModel.Users;
 using VoceViuModel.Users.Abstractions;
 using VoceViuModel.Users.Commands;
 using VoceViuModel.Users.Services;
@@ -24,17 +25,24 @@ namespace VoceViuWeb.Areas.Admin.API
         private readonly SignInService _signInService;
         private readonly AdvertiserAccountService _advertiserAccountService;
         private readonly IAdvertiserRepository _advertiserRepository;
+        private readonly AdministratorAccountService _administratorAccountService;
 
-        public AccountController(IAdministratorRepository administratorRepository, AuthenticationService authenticationService, SignInService signInService, AdvertiserAccountService advertiserAccountService, IAdvertiserRepository advertiserRepository)
+        public AccountController(IAdministratorRepository administratorRepository, AuthenticationService authenticationService, SignInService signInService, AdvertiserAccountService advertiserAccountService, IAdvertiserRepository advertiserRepository, AdministratorAccountService administratorAccountService)
         {
             _administratorRepository = administratorRepository;
             _authenticationService = authenticationService;
             _signInService = signInService;
             _advertiserAccountService = advertiserAccountService;
             _advertiserRepository = advertiserRepository;
+            _administratorAccountService = administratorAccountService;
         }
 
-        public AuthenticateResponse AuthenticateAdmin(AuthenticateRequest request)
+        public void AddAdd()
+        {
+            _administratorAccountService.Create("admin", "admin");
+        }
+
+        public async Task<AuthenticateResponse> AuthenticateAdministrator(AuthenticateRequest request)
         {
             var errors = request.Validate();
             if (errors.Any())
@@ -45,9 +53,9 @@ namespace VoceViuWeb.Areas.Admin.API
                 throw new Exception("Usuário não encontrado");
 
             _authenticationService.AuthenticateAdministrator(request);
-            _signInService.SignInAdministratorAsync(user, true).RunSynchronously();
+            await _signInService.SignInAdministratorAsync(user, true);
 
-            return new AuthenticateResponse { ReturnUrl = request.ReturnUrl ?? "/" };
+            return new AuthenticateResponse { ReturnUrl = request.ReturnUrl ?? "/Admin/Home" };
         }
 
         public async Task<AuthenticateResponse> AuthenticateAdvertiser(AuthenticateRequest request)

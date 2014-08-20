@@ -9,6 +9,11 @@
             method: "POST",
             isArray: false,
             params: { 'action': 'AuthenticateAdvertiser' }
+        },
+        authenticateAdministrator: {
+            method: "POST",
+            isArray: false,
+            params: { 'action': 'AuthenticateAdministrator' }
         }
     });
 });

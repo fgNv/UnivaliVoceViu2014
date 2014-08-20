@@ -15,18 +15,6 @@ namespace VoceViuWeb.Controllers
     [Authorize]
     public class AccountController : Controller
     {
-        public AccountController()
-            : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())))
-        {
-        }
-
-        public AccountController(UserManager<ApplicationUser> userManager)
-        {
-            UserManager = userManager;
-        }
-
-        public UserManager<ApplicationUser> UserManager { get; private set; }
-
         [HttpGet]
         public ActionResult LogOff()
         {
@@ -36,11 +24,6 @@ namespace VoceViuWeb.Controllers
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing && UserManager != null)
-            {
-                UserManager.Dispose();
-                UserManager = null;
-            }
             base.Dispose(disposing);
         }
 

@@ -11,9 +11,9 @@ namespace VoceViuWeb.Filters
 {
     public class AuthorizeByClaimAttribute : ActionFilterAttribute, IAuthenticationFilter
     {
-        private string _profileType;
+        private string[] _profileType;
 
-        public AuthorizeByClaimAttribute(string profileType)
+        public AuthorizeByClaimAttribute(params string[] profileType)
         {
             _profileType = profileType;
         }
@@ -38,7 +38,7 @@ namespace VoceViuWeb.Filters
                 return;
             }
 
-            if (profileType.Value != _profileType)
+            if (!_profileType.Contains(profileType.Value))
                 filterContext.Result = new HttpUnauthorizedResult();
         }
     }

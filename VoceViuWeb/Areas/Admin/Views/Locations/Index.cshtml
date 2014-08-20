@@ -1,0 +1,90 @@
+﻿@{
+    ViewBag.Title = "Gerenciamento de locais";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div data-ng-controller="locationsController" data-ng-class="{'loading' : pendingRequests > 0}">
+    <h3>Gerenciamento de locais</h3>
+    <div data-ng-show="step == 'list'">
+        <div class="row">
+            <div class="col-md-8">
+                <button class="btn btn-info" data-ng-click="showForm()">Criar novo local</button>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-8">
+                <table class="table" data-ng-show="locations.length > 0">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>IP</th>
+                            <th>Pontos</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-ng-repeat="location in locations">
+                            <td>{{location.Name}}</td>
+                            <td>{{location.IP}}</td>
+                            <td>
+                                <ul>
+                                    <li data-ng-repeat="point in location.Points">
+                                        {{point.Name}}
+                                    </li>
+                                </ul>
+                            </td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p data-ng-hide="locations.length > 0">Não há locais cadastrados</p>
+            </div>
+        </div>
+    </div>
+    <div data-ng-show="step == 'form'">
+        <section class="form-horizontal">
+            <button data-ng-click="showList()" class="btn btn-info">Voltar para listagem</button>
+            <h2>{{formTitle}}</h2>
+            <hr />
+
+            <div class="form-group">
+                <label for="name" class="col-md-2 control-label">Nome</label>
+                <div class="col-md-10">
+                    <input type="text" id="name" data-ng-model="form.Name" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="ip" class="col-md-2 control-label">IP</label>
+                <div class="col-md-10">
+                    <input type="text" id="ip" data-ng-model="form.IP" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="spot" class="col-md-2 control-label">Spot(em segundos)</label>
+                <div class="col-md-10">
+                    <input type="text" id="spot" data-ng-model="form.Spot" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password" class="col-md-2 control-label">Pontos</label>
+                <div class="col-md-10">
+                    <ul>
+                        <li data-ng-repeat="point in form.Points">
+                            <span> <input type="text" class="form-control" data-ng-model="Name" /></span>
+                            <button type="button" class="btn btn-danger btn-sm" data-ng-click="form.removePoint(point)">Excluir</button>
+                        </li>
+                    </ul>
+                    <button type="button" id="password" data-ng-click="form.addPoint()" class="btn btn-info">
+                        Adicionar ponto
+                    </button>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="button" class="btn btn-default" data-ng-click="save()">Salvar</button>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

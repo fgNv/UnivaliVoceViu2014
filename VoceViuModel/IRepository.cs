@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VoceViuModel.Users.Abstractions
+namespace VoceViuModel.Abstractions
 {
     public interface IRepository
     {

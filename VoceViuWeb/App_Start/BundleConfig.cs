@@ -16,6 +16,8 @@ namespace VoceViuWeb
                         "~/Scripts/App/app.js",
                         "~/Scripts/App/Resources/*.js",
                         "~/Scripts/App/Controllers/*.js",
+                        "~/Areas/Admin/Scripts/Controllers/*.js",
+                        "~/Areas/Advertiser/Scripts/Controllers/*.js",
                         "~/Scripts/App/Models/*.js"
                         ));
 
@@ -26,8 +28,7 @@ namespace VoceViuWeb
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+                      "~/Scripts/Vendors/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",

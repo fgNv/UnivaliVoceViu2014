@@ -55,11 +55,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mappings\Locations\LocationMapping.cs" />
+    <Compile Include="Mappings\Locations\PointMapping.cs" />
     <Compile Include="Mappings\Users\AdministratorMapping.cs" />
     <Compile Include="Mappings\Users\AdvertiserMapping.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AdministratorRepository.cs" />
     <Compile Include="Repositories\AdvertiserRepository.cs" />
+    <Compile Include="Repositories\LocationRepository.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="VoceViuDbContext.cs" />
   </ItemGroup>

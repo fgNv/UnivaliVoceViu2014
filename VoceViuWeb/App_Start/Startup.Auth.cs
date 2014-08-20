@@ -12,7 +12,7 @@ namespace VoceViuWeb
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-                LoginPath = new PathString("/Account/Login")
+                LoginPath = new PathString("/Advertiser/Account/Login")
             });
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
         }

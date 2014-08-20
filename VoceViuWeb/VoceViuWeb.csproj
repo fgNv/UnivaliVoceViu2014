@@ -187,6 +187,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\LocationController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\DependencyRegistration.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -197,10 +198,11 @@
     <Compile Include="Api\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LocationsController.cs" />
     <Compile Include="Areas\Advertiser\AdvertiserAreaRegistration.cs" />
     <Compile Include="Areas\Advertiser\Controllers\AccountController.cs" />
     <Compile Include="Areas\Advertiser\Controllers\HomeController.cs" />
-    <Compile Include="Controllers\Generated\AccountController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Generated\HomeController.cs" />
     <Compile Include="Exceptions\ValidationException.cs" />
     <Compile Include="Filters\AuthorizeByClaimAttribute.cs" />
@@ -208,14 +210,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\RequestExtensions.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account\AdvertiserNewAccountRequest.cs" />
     <Compile Include="Models\Authentication\AuthenticateRequest.cs" />
     <Compile Include="Models\Authentication\AuthenticateResponse.cs" />
     <Compile Include="Models\Authentication\Implementations\AdministratorStore.cs" />
     <Compile Include="Models\Authentication\Implementations\AdvertiserStore.cs" />
-    <Compile Include="Models\Generated\AccountViewModels.cs" />
-    <Compile Include="Models\Generated\IdentityModels.cs" />
     <Compile Include="Models\NotificationResponse.cs" />
     <Compile Include="Models\ReturnUrlResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -223,6 +224,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Scripts\Controllers\LocationsController.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\Loading.gif" />
@@ -233,14 +235,15 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\App\app.js" />
-    <Content Include="Scripts\App\Controllers\AdminAuthenticationController.js" />
-    <Content Include="Scripts\App\Controllers\AdvertiserAuthenticationController.js" />
-    <Content Include="Scripts\App\Controllers\NewAdvertiserAccountController.js" />
+    <Content Include="Areas\Admin\Scripts\Controllers\AdminAuthenticationController.js" />
+    <Content Include="Areas\Advertiser\Scripts\Controllers\AdvertiserAuthenticationController.js" />
+    <Content Include="Areas\Advertiser\Scripts\Controllers\NewAdvertiserAccountController.js" />
     <Content Include="Scripts\App\Models\AuthenticateRequest.js" />
     <Content Include="Scripts\App\Models\AuthenticateResponse.js" />
     <Content Include="Scripts\App\Models\NewAccountRequest.js" />
     <Content Include="Scripts\App\NotificationHandler.js" />
     <Content Include="Scripts\App\Resources\AccountResource.js" />
+    <Content Include="Scripts\App\Resources\LocationResource.js" />
     <Content Include="Scripts\Vendors\Angular\angular-resource.js" />
     <Content Include="Scripts\Vendors\Angular\angular.js" />
     <Content Include="Scripts\Vendors\Angular\angular.min.js" />
@@ -278,13 +281,11 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_MenuPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Home\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Scripts\App\Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -295,6 +296,8 @@
     <Content Include="Areas\Advertiser\Views\Account\Create.cshtml" />
     <Content Include="Areas\Advertiser\Views\web.config" />
     <Content Include="Areas\Advertiser\Views\Account\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Locations\Index.cshtml" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,57 @@
+﻿@using Microsoft.AspNet.Identity
+@using VoceViuWeb.Services
+@using VoceViuWeb.Helpers
+@if (Request.IsAuthenticated)
+{
+    var profile = Request.GetProfile();
+    <ul class="nav navbar-nav navbar-right">
+
+        @if (profile == SignInService.PROFILE_TYPE_ADMIN)
+        {
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gerenciamento<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Lista de anunciantes</a></li>
+                    <li><a href="#">Lista de solicitações de serviço</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cadastros<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="@Url.Action("Index", "Locations", new { Area = "admin" })">Locais</a></li>
+                    <li class="divider"></li>
+                    <li><b class="col-md-10">Modelos de contrato</b></li>
+                    <li><a href="#">Lista de modelos de contrato</a></li>
+                    <li><a href="#">Cadastrar novo modelo de contrato</a></li>
+                    <li class="divider"></li>
+                    <li><b class="col-md-10">Anúncios do administrador</b></li>
+                    <li><a href="#">Lista de anúncios do administrador</a></li>
+                    <li><a href="#">Cadastrar novo anúncio do administrador</a></li>
+                </ul>
+            </li>
+        }
+        else if (profile == SignInService.PROFILE_TYPE_ADVERTISER)
+        {
+            <li><a href="#">Meu cadastro</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Solicitações de serviço <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Criar nova solicitação de serviço</a></li>
+                    <li><a href="#">Minhas solicitações de serviço</a></li>
+                </ul>
+            </li>
+        }
+
+        <li>
+            <a href="@Url.Action("index", "home", new { area = profile })"> Olá @(User.Identity.GetUserName()) !</a>
+        </li>
+        <li><a href="/account/logoff">Log off</a></li>
+    </ul>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Seja anunciante", "Create", "Account", routeValues: new { Area = "Advertiser" }, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Autenticar", "Login", "Account", routeValues: new { Area = "Advertiser" }, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}
