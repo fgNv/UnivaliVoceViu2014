@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VoceViuModel.Locations.Abstractions;
 using VoceViuModel.Locations.Domain;
+using System.Data.Entity;
 
 namespace VoceViuPersistence.Repositories
 {
@@ -24,12 +25,12 @@ namespace VoceViuPersistence.Repositories
 
         public Location Get(int id)
         {
-            return _context.Locations.FirstOrDefault(l => l.Id == id);
+            return _context.Locations.Include(l => l.Points).FirstOrDefault(l => l.Id == id);
         }
 
         public IEnumerable<Location> GetAll()
         {
-            return _context.Locations;
+            return _context.Locations.Include(l => l.Points);
         }
 
         public void Remove(VoceViuModel.Locations.Domain.Location location)

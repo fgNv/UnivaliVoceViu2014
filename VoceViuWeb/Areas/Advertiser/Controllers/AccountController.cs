@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace VoceViuWeb.Areas.Advertiser.Controllers
+namespace VoceViuWeb.Areas.Advertisers.Controllers
 {
     public class AccountController : Controller
     {

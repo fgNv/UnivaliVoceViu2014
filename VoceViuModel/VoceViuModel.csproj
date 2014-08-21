@@ -57,6 +57,14 @@
     <Compile Include="Locations\Domain\Point.cs" />
     <Compile Include="Locations\Messages\SaveLocationMessage.cs" />
     <Compile Include="Locations\Services\LocationService.cs" />
+    <Compile Include="ServiceSolicitation\Abstraction\IServiceSolicitationRepository.cs" />
+    <Compile Include="ServiceSolicitation\Domain\Advertisement.cs" />
+    <Compile Include="ServiceSolicitation\Domain\AdvertisementContent.cs" />
+    <Compile Include="ServiceSolicitation\Domain\ContractModel.cs" />
+    <Compile Include="ServiceSolicitation\Domain\ServiceSolicitation.cs" />
+    <Compile Include="ServiceSolicitation\Domain\AdvertisementStatus.cs" />
+    <Compile Include="ServiceSolicitation\Messages\CreateServiceSolicitationMessage.cs" />
+    <Compile Include="ServiceSolicitation\Services\ServiceSolicitationService.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="Users\Abstractions\IAdministratorRepository.cs" />
     <Compile Include="Users\Abstractions\IAdvertiserRepository.cs" />
@@ -76,6 +84,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -67,7 +67,9 @@ namespace VoceViuModel.Locations.Services
 
         public void Remove(int id)
         {
-
+            var location = _locationRepository.Get(id);
+            _locationRepository.Remove(location);
+            _locationRepository.SaveChanges();
         }
     }
 }

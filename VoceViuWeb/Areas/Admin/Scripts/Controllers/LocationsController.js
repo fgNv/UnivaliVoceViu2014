@@ -15,6 +15,10 @@
         this.addPoint = function () {
             self.Points.push(new Point());
         };
+
+        this.removePoint = function(point){
+            self.Points = Enumerable.From(self.Points).Where(function (i) { return i != point }).ToArray();
+        };
     };
 
     var Point = function (point) {
@@ -57,15 +61,45 @@
                 });
         };
 
+        $scope.remove = function (location) {
+            var data = new LocationForm(location);
+            $scope.pendingRequests++;
+            LocationResource.remove(
+                { id: data.Id },
+                {  },
+                function (response) {
+                    notificationManager.AddSuccessNotificiation("Local excluido com sucesso");
+                    _getLocations();
+                    $scope.pendingRequests--;
+                },
+                function (response) {
+                    $scope.pendingRequests--;
+                    var title = "Houve uma falha ao excluir o local";
+                    if (!response.data.messages) {
+                        notificationManager.AddNotificiation(title, ["Não foi possível conectar ao servidor"], "error");
+                        return;
+                    }
+                    notificationManager.AddNotificiation(title, response.data.messages, "error");
+                });
+        };
+
         $scope.save = function () {
+            $scope.pendingRequests++;
             LocationResource.add(
                 $scope.form,
                 function (response) {
                     notificationManager.AddSuccessNotificiation("Local criado com sucesso");
                     _getLocations();
+                    $scope.pendingRequests--;
                 },
                 function (response) {
-                    notificationManager.AddNotificiation("Houve uma falha ao criar o local",response.data.messages,"error");
+                    $scope.pendingRequests--;
+                    var title = "Houve uma falha ao criar o local";
+                    if (!response.data.messages){
+                        notificationManager.AddNotificiation(title, ["Não foi possível conectar ao servidor"], "error");
+                        return;
+                    }
+                    notificationManager.AddNotificiation(title, response.data.messages, "error");
                 });
         };
 

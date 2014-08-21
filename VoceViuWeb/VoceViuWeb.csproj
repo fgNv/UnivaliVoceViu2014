@@ -188,6 +188,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\LocationController.cs" />
+    <Compile Include="Api\ServiceSolicitationController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\DependencyRegistration.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -211,6 +212,18 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\RequestExtensions.cs" />
+    <Compile Include="Migrations\201408212316196_adicaoServiceSolicitation.cs" />
+    <Compile Include="Migrations\201408212316196_adicaoServiceSolicitation.Designer.cs">
+      <DependentUpon>201408212316196_adicaoServiceSolicitation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201408212331575_adicaoServiceSolicitationAdvertisr.cs" />
+    <Compile Include="Migrations\201408212331575_adicaoServiceSolicitationAdvertisr.Designer.cs">
+      <DependentUpon>201408212331575_adicaoServiceSolicitationAdvertisr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201408212342232_renomeDeColuna.cs" />
+    <Compile Include="Migrations\201408212342232_renomeDeColuna.Designer.cs">
+      <DependentUpon>201408212342232_renomeDeColuna.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account\AdvertiserNewAccountRequest.cs" />
     <Compile Include="Models\Authentication\AuthenticateRequest.cs" />
@@ -309,6 +322,17 @@
       <Project>{de0e07d2-cab3-4a84-a77f-2ad0e4da5b32}</Project>
       <Name>VoceViuPersistence</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201408212316196_adicaoServiceSolicitation.resx">
+      <DependentUpon>201408212316196_adicaoServiceSolicitation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408212331575_adicaoServiceSolicitationAdvertisr.resx">
+      <DependentUpon>201408212331575_adicaoServiceSolicitationAdvertisr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408212342232_renomeDeColuna.resx">
+      <DependentUpon>201408212342232_renomeDeColuna.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

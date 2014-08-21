@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VoceViuModel.Locations.Services;
+using VoceViuModel.ServiceSolicitation.Services;
 using VoceViuModel.Users;
 using VoceViuModel.Users.Services;
 
@@ -18,6 +19,7 @@ namespace VoceViuModel
             container.Register<CryptographyService, CryptographyService>(lifestyle);
             container.Register<AuthenticationService, AuthenticationService>(lifestyle);
             container.Register<LocationService, LocationService>(lifestyle);
+            container.Register<ServiceSolicitationService, ServiceSolicitationService>(lifestyle);
         }
     }
 }

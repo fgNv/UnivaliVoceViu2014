@@ -18,7 +18,7 @@ namespace VoceViuWeb.Areas.Admin
                 "Advertiser_default",
                 "Advertiser/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional },
-                new[] { "VoceViuWeb.Areas.Advertiser.Controllers" }
+                new[] { "VoceViuWeb.Areas.Advertisers.Controllers" }
             );
         }
     }
