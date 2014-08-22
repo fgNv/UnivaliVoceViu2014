@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Você Viu</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/css/angularStrap")
 
 </head>
 <body data-ng-app="app">
@@ -37,6 +38,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/utilities")
     @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/angularStrap")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>

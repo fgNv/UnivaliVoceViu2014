@@ -10,6 +10,18 @@ namespace VoceViuWeb
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/Vendors/JQuery/jquery-{version}.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/utilities").Include(
+                "~/Scripts/Vendors/pnotify.custom.min.js",
+                "~/Scripts/Vendors/LinqJs/linq.js",
+                "~/Scripts/App/NotificationHandler.js"
+                ));
+
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                      "~/Scripts/Vendors/bootstrap.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/angularStrap").Include(
+                      "~/Scripts/Vendors/AngularStrap/*.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                         "~/Scripts/Vendors/Angular/angular.js",
                         "~/Scripts/Vendors/Angular/angular-resource.js",
@@ -20,19 +32,13 @@ namespace VoceViuWeb
                         "~/Scripts/App/Models/*.js"
                         ));
 
-            bundles.Add(new ScriptBundle("~/bundles/utilities").Include(
-                "~/Scripts/Vendors/pnotify.custom.min.js",
-                "~/Scripts/Vendors/LinqJs/linq.js",
-                "~/Scripts/App/NotificationHandler.js"
-                ));
-
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/Vendors/bootstrap.js"));
-
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
                       "~/Content/pnotify.custom.css"));
+
+            bundles.Add(new StyleBundle("~/Content/css/angularStrap").Include(
+                      "~/Content/AngularStrap/*.css"));
         }
     }
 }

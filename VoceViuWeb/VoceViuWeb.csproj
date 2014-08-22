@@ -233,6 +233,12 @@
   <ItemGroup>
     <Content Include="Areas\Admin\Scripts\Controllers\ContractModelController.js" />
     <Content Include="Areas\Admin\Scripts\Controllers\LocationsController.js" />
+    <Content Include="Areas\Advertisers\Scripts\Controllers\CreateServiceSolicitationController.js" />
+    <Content Include="Content\AngularStrap\angular-motion.min.css" />
+    <Content Include="Content\AngularStrap\bootstrap-additions.min.css" />
+    <Content Include="Content\AngularStrap\font-awesome.min.css" />
+    <Content Include="Content\AngularStrap\libraries.min.css" />
+    <Content Include="Content\AngularStrap\main.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\Loading.gif" />
@@ -251,11 +257,19 @@
     <Content Include="Scripts\App\Models\ContractModelForm.js" />
     <Content Include="Scripts\App\Models\LocationForm.js" />
     <Content Include="Scripts\App\Models\NewAccountRequest.js" />
+    <Content Include="Scripts\App\Models\NewServiceSolicitationForm.js" />
     <Content Include="Scripts\App\NotificationHandler.js" />
     <Content Include="Scripts\App\Resources\AccountResource.js" />
     <Content Include="Scripts\App\Resources\ContractModelResource.js" />
     <Content Include="Scripts\App\Resources\LocationResource.js" />
     <Content Include="Scripts\App\Resources\ServiceSolicitation.js" />
+    <Content Include="Scripts\Vendors\AngularStrap\angular-animate.js" />
+    <Content Include="Scripts\Vendors\AngularStrap\angular-sanitaze.js" />
+    <Content Include="Scripts\Vendors\AngularStrap\angular-strap.js" />
+    <Content Include="Scripts\Vendors\AngularStrap\angular-strap.min.js" />
+    <Content Include="Scripts\Vendors\AngularStrap\angular-strap.tpl.js" />
+    <Content Include="Scripts\Vendors\AngularStrap\angular-strap.tpl.min.js" />
+    <Content Include="Scripts\Vendors\AngularStrap\date-parser.js" />
     <Content Include="Scripts\Vendors\Angular\angular-resource.js" />
     <Content Include="Scripts\Vendors\Angular\angular.js" />
     <Content Include="Scripts\Vendors\Angular\angular.min.js" />
@@ -284,15 +298,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\Vendors\JQuery\jquery-1.10.2.min.map" />
-    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
-    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Manage.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_MenuPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
