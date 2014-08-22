@@ -47,7 +47,7 @@ input[type="checkbox"].input-validation-error {
     background-position: center;
     z-index: 150;
 	position:absolute; 
-	height:70%; 
+	height:100%; 
 	width: 73%; 
 	opacity: 0.30;
 	background-color:#ddd;

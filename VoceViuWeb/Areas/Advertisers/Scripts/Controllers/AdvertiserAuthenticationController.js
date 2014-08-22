@@ -2,8 +2,6 @@
 
 (function () {
 
-    var notificationHandler = new NotificationHandler();
-
     app.controller("AdvertiserAuthenticationController", ["$scope", "AccountResource", function ($scope, AccountResource) {
         
         $scope = $scope || {};

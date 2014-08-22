@@ -29,7 +29,7 @@ namespace VoceViuModel.ServiceSolicitations.Services
             serviceSolicitation.Location = _locationRepository.Get(message.LocationId);
             serviceSolicitation.Advertiser = _advertiserRepository.Get(message.AdvertiserId);
             serviceSolicitation.EndDate = message.EndDate;
-            serviceSolicitation.MonthlyValue = message.MonthlyValue;
+            serviceSolicitation.MonthlyValue = serviceSolicitation.Location.MonthlyValue;
             serviceSolicitation.StartDate = message.StartDate;
 
             _serviceSolicitationRepository.Add(serviceSolicitation);

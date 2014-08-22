@@ -4,8 +4,6 @@
 
 (function () {
 
-    var notificationHandler = new NotificationHandler();
-        
     app.controller("AdminAuthenticationController", ["$scope", "AccountResource", function ($scope, AccountResource) {
 
         $scope = $scope || {};

@@ -14,6 +14,7 @@ namespace VoceViuModel.Locations.Messages
         public string Name { get; set; }
         public int Spot { get; set; }
         public string PublicType { get; set; }
+        public double MonthlyValue { get; set; }
 
         public class PointViewModel
         {

@@ -51,6 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminContent\Abstractions\IContentRepository.cs" />
+    <Compile Include="AdminContent\Domain\Content.cs" />
+    <Compile Include="AdminContent\Messages\SaveContentMessage.cs" />
+    <Compile Include="AdminContent\Services\ContentServices.cs" />
     <Compile Include="Exceptions\ExceptionExtensions.cs" />
     <Compile Include="Locations\Abstractions\ILocationRepository.cs" />
     <Compile Include="Locations\Domain\Location.cs" />
@@ -65,6 +69,7 @@
     <Compile Include="ServiceSolicitations\Domain\ServiceSolicitation.cs" />
     <Compile Include="ServiceSolicitations\Domain\AdvertisementStatus.cs" />
     <Compile Include="ServiceSolicitations\Messages\CreateServiceSolicitationMessage.cs" />
+    <Compile Include="ServiceSolicitations\Messages\SaveContractModelMessage.cs" />
     <Compile Include="ServiceSolicitations\Services\ContractModelService.cs" />
     <Compile Include="ServiceSolicitations\Services\ServiceSolicitationService.cs" />
     <Compile Include="Setup.cs" />

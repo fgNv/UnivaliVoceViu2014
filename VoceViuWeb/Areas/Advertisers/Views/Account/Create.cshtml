@@ -3,7 +3,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<article data-ng-controller="NewAdvertiserAccountController" data-ng-class="{'loading' : pendingRequests > 0}">
+<article data-ng-controller="NewAdvertiserAccountController" >
+    <div class="loading" data-ng-show="pendingRequests > 0"></div>
     <h2>Criar nova conta de anunciante</h2>
     <section class="form-horizontal">
         <div class="row">

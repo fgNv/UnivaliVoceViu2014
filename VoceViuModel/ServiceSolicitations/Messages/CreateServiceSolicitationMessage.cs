@@ -10,7 +10,6 @@ namespace VoceViuModel.ServiceSolicitations.Messages
     {
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public double MonthlyValue { get; set; }
         public int LocationId { get; set; }
         public int AdvertiserId { get; set; }
     }

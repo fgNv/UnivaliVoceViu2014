@@ -1,7 +1,5 @@
 ﻿(function () {
 
-    var notificationHandler = new NotificationHandler();
-
     app.controller("NewAdvertiserAccountController", ["$scope", "AccountResource",
         function ($scope, AccountResource) {
 

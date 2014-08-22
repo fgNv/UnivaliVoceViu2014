@@ -20,6 +20,7 @@ namespace VoceViuModel
             container.Register<AuthenticationService, AuthenticationService>(lifestyle);
             container.Register<LocationService, LocationService>(lifestyle);
             container.Register<ServiceSolicitationService, ServiceSolicitationService>(lifestyle);
+            container.Register<ContractModelService,ContractModelService>(lifestyle);
         }
     }
 }

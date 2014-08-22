@@ -13,20 +13,5 @@ namespace VoceViuWeb.Areas.Admin.Controllers
         {
             return View();
         }
-
-        public JsonResult CreateContractModel(CreateContractModelRequest request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public JsonResult UpdateContractModel(CreateContractModelRequest request, int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public FileResult DownloadAttachment(int id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

@@ -4,7 +4,8 @@
 }
 
 <h2>@ViewBag.Title</h2>
-<div class="row" data-ng-controller="AdvertiserAuthenticationController" data-ng-class="{'loading' : pendingRequests > 0}">
+<div class="row" data-ng-controller="AdvertiserAuthenticationController" >
+    <div class="loading" data-ng-show="pendingRequests > 0"></div>
     <div class="col-md-8">
         <section class="form-horizontal">
             <h4>Forneça suas credenciais para autenticar</h4>

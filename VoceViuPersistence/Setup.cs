@@ -19,11 +19,12 @@ namespace VoceViuPersistence
             var connectionStringName = ConfigurationManager.AppSettings["databaseConnection"];
             var conn = System.Configuration.ConfigurationManager.ConnectionStrings[connectionStringName].ConnectionString;
 
-            container.Register<VoceViuDbContext>(() => new VoceViuDbContext(conn)  ,lifestyle);
+            container.Register<VoceViuDbContext>(() => new VoceViuDbContext(conn), lifestyle);
             container.Register<IAdvertiserRepository, AdvertiserRepository>(lifestyle);
             container.Register<IAdministratorRepository, AdministratorRepository>(lifestyle);
             container.Register<ILocationRepository, LocationRepository>(lifestyle);
             container.Register<IServiceSolicitationRepository, ServiceSolicitationRepository>(lifestyle);
+            container.Register<IContractModelRepository, ContractModelRepository>(lifestyle);
         }
     }
 }

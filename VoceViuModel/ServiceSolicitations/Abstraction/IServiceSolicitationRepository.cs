@@ -10,6 +10,7 @@ namespace VoceViuModel.ServiceSolicitations.Abstraction
     public interface IServiceSolicitationRepository : IRepository
     {
         IEnumerable<ServiceSolicitation> GetAll();
+        IEnumerable<ServiceSolicitation> GetByAdvertiser(int id);
         ServiceSolicitation Get(int id);
         void Add(ServiceSolicitation solicitation);
         void Remove(ServiceSolicitation solicitation);

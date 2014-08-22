@@ -2,7 +2,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml"; ;
 }
 
-<div class="row" data-ng-controller="AdminAuthenticationController" data-ng-class="{'loading' : pendingRequests > 0}">
+<div class="row" data-ng-controller="AdminAuthenticationController">
+    <div class="loading" data-ng-show="pendingRequests > 0"></div>
     <div class="col-md-8">
         <section class="form-horizontal">
             <h2>Login da área administrativa</h2>

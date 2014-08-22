@@ -63,10 +63,10 @@
     <Compile Include="Mappings\ServiceSolicitation\ServiceSolicitationMapping.cs" />
     <Compile Include="Mappings\Users\AdministratorMapping.cs" />
     <Compile Include="Mappings\Users\AdvertiserMapping.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AdministratorRepository.cs" />
     <Compile Include="Repositories\AdvertiserRepository.cs" />
+    <Compile Include="Repositories\ContractModelRepository.cs" />
     <Compile Include="Repositories\LocationRepository.cs" />
     <Compile Include="Repositories\ServiceSolicitationRepository.cs" />
     <Compile Include="Setup.cs" />

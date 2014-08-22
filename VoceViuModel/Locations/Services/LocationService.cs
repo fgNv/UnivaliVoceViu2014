@@ -25,6 +25,7 @@ namespace VoceViuModel.Locations.Services
             location.Name = message.Name;
             location.PublicType = message.PublicType;
             location.Spot = message.Spot;
+            location.MonthlyValue = message.MonthlyValue;
             foreach (var pointVm in message.Points)
                 location.Points.Add(new Point { Name = pointVm.Name });
 

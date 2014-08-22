@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using VoceViuWeb.Filters;
 using VoceViuWeb.Services;
 
-namespace VoceViuWeb.Areas.Advertiser.Controllers
+namespace VoceViuWeb.Areas.Advertisers.Controllers
 {
     [AuthorizeByClaimAttribute(SignInService.PROFILE_TYPE_ADVERTISER)]
     public class HomeController : Controller

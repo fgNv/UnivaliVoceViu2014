@@ -28,11 +28,11 @@ namespace VoceViuWeb.Filters
             if (user == null || !user.Identity.IsAuthenticated)
                 filterContext.Result = new HttpUnauthorizedResult();
 
-            var userClaims = user.Identity as ClaimsIdentity;
-            if(userClaims == null)
+            var identity = user.Identity as ClaimsIdentity;
+            if(identity == null)
                 filterContext.Result = new HttpUnauthorizedResult();
 
-            var profileType = userClaims.Claims.FirstOrDefault(c => c.Type == SignInService.PROFILE_TYPE_CLAIMS_KEY);
+            var profileType = identity.Claims.FirstOrDefault(c => c.Type == SignInService.PROFILE_TYPE_CLAIMS_KEY);
             if (profileType == null) { 
                 filterContext.Result = new HttpUnauthorizedResult();
                 return;

@@ -15,9 +15,8 @@ namespace VoceViuWeb
                         "~/Scripts/Vendors/Angular/angular-resource.js",
                         "~/Scripts/App/app.js",
                         "~/Scripts/App/Resources/*.js",
-                        "~/Scripts/App/Controllers/*.js",
                         "~/Areas/Admin/Scripts/Controllers/*.js",
-                        "~/Areas/Advertiser/Scripts/Controllers/*.js",
+                        "~/Areas/Advertisers/Scripts/Controllers/*.js",
                         "~/Scripts/App/Models/*.js"
                         ));
 

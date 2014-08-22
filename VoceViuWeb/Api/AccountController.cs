@@ -55,7 +55,7 @@ namespace VoceViuWeb.Areas.Admin.API
             _authenticationService.AuthenticateAdministrator(request);
             await _signInService.SignInAdministratorAsync(user, true);
 
-            return new AuthenticateResponse { ReturnUrl = request.ReturnUrl ?? "/Admin/Home" };
+            return new AuthenticateResponse { ReturnUrl = request.ReturnUrl ?? "/Admin/Home/Index" };
         }
 
         public async Task<AuthenticateResponse> AuthenticateAdvertiser(AuthenticateRequest request)

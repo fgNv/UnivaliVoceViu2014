@@ -3,18 +3,19 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div data-ng-controller="contractModelController" data-ng-class="{'loading' : pendingRequests > 0}">
+<div data-ng-controller="contractModelController" >
     <h3>Gerenciamento de modelos de contrato</h3>
+    <div class="loading" data-ng-show="pendingRequests > 0"></div>
     <div data-ng-show="step == 'list'">
         <div class="row">
             <div class="col-md-8">
-                <button class="btn btn-info" data-ng-click="showForm()">Criar novo modelo de contrato</button>
+                <button class="btn btn-info" data-ng-click="goToClearedForm()">Criar novo modelo de contrato</button>
             </div>
         </div>
         <hr />
-        <div class="row" data-ng-show="pendingRequests == 0">
+        <div class="row">
             <div class="col-md-8">
-                <table class="table" data-ng-show="locations.length > 0">
+                <table class="table" data-ng-show="contractModels.length > 0">
                     <thead>
                         <tr>
                             <th>Nome</th>
@@ -27,12 +28,11 @@
                             <td>
                                 <button type="button" class="btn btn-danger btn-sm" data-ng-click="remove(contractModel)">Excluir</button>
                                 <button type="button" class="btn btn-info btn-sm" data-ng-click="edit(contractModel)">Editar</button>
-                                @*<a href="/Admin/ContractModel/Download/{{contractModel.Id}}">Baixar anexo</a>*@
                             </td>
                         </tr>
                     </tbody>
                 </table>
-                <p data-ng-hide="locations.length > 0">Não há modelos de contrato cadastrados</p>
+                <p data-ng-show="contractModels.length == 0 && pendingRequests == 0">Não há modelos de contrato cadastrados</p>
             </div>
         </div>
     </div>
@@ -52,22 +52,15 @@
             <div class="form-group">
                 <label for="summary" class="col-md-2 control-label">Sumário</label>
                 <div class="col-md-10">
-                    <textarea id="summary" data-ng-model="form.Summary" class="form-control" />
+                    <textarea id="summary" data-ng-model="form.Summary" class="form-control"></textarea>
                 </div>
             </div>
             <div class="form-group">
                 <label for="terms" class="col-md-2 control-label">Claúsulas</label>
                 <div class="col-md-10">
-                    <textarea id="terms" data-ng-model="form.Terms" class="form-control" />
+                    <textarea id="terms" data-ng-model="form.Terms" class="form-control" > </textarea>
                 </div>
             </div>
-           
-            @*<div class="form-group">
-                <label for="terms" class="col-md-2 control-label">Anexo</label>
-                <div class="col-md-10">
-                    <textarea id="terms" data-ng-model="form.Terms" class="form-control" />
-                </div>
-            </div>*@
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">

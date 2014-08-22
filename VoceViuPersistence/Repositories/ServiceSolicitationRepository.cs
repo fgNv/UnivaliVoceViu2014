@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VoceViuModel.ServiceSolicitations.Abstraction;
 using VoceViuModel.ServiceSolicitations;
+using System.Data.Entity;
 
 namespace VoceViuPersistence.Repositories
 {
@@ -50,6 +51,13 @@ namespace VoceViuPersistence.Repositories
         public void Dispose()
         {
             _context.Dispose();
+        }
+
+        public IEnumerable<ServiceSolicitation> GetByAdvertiser(int id)
+        {
+            return _context.ServiceSolicitations
+                           .Include(ss => ss.Advertiser)
+                           .Where(ss => ss.Advertiser.Id == id);
         }
     }
 }

@@ -9,7 +9,7 @@
     <div data-ng-show="step == 'list'">
         <div class="row">
             <div class="col-md-8">
-                <button class="btn btn-info" data-ng-click="showForm()">Criar novo local</button>
+                <button class="btn btn-info" data-ng-click="goToClearedForm()">Criar novo local</button>
             </div>
         </div>
         <hr />
@@ -63,6 +63,12 @@
                 <label for="ip" class="col-md-2 control-label">IP</label>
                 <div class="col-md-10">
                     <input type="text" id="ip" data-ng-model="form.IP" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="monthlyValue" class="col-md-2 control-label">Valor mensal</label>
+                <div class="col-md-10">
+                    <input type="text" id="monthlyValue" data-ng-model="form.MonthlyValue" class="form-control" />
                 </div>
             </div>
             <div class="form-group">

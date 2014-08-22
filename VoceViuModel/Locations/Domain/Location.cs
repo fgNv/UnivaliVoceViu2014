@@ -15,6 +15,7 @@ namespace VoceViuModel.Locations.Domain
         public string PublicType { get; set; }
         public int Spot { get; set; }
         public ICollection<Point> Points { get; set; }
+        public double MonthlyValue { get; set; }
 
         public Location()
         {

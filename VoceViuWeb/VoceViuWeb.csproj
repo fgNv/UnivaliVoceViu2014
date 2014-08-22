@@ -187,6 +187,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\ContractModelController.cs" />
     <Compile Include="Api\LocationController.cs" />
     <Compile Include="Api\ServiceSolicitationController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -201,9 +202,10 @@
     <Compile Include="Areas\Admin\Controllers\ContractModelController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LocationsController.cs" />
-    <Compile Include="Areas\Advertiser\AdvertiserAreaRegistration.cs" />
-    <Compile Include="Areas\Advertiser\Controllers\AccountController.cs" />
-    <Compile Include="Areas\Advertiser\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Advertisers\AdvertiserAreaRegistration.cs" />
+    <Compile Include="Areas\Advertisers\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Advertisers\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Advertisers\Controllers\ServiceSolicitationController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Generated\HomeController.cs" />
     <Compile Include="Exceptions\ValidationException.cs" />
@@ -212,6 +214,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\IPrincipalExtensions.cs" />
     <Compile Include="Helpers\RequestExtensions.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account\AdvertiserNewAccountRequest.cs" />
@@ -222,6 +225,7 @@
     <Compile Include="Models\ContractModel\CreateContractModelRequest.cs" />
     <Compile Include="Models\NotificationResponse.cs" />
     <Compile Include="Models\ReturnUrlResponse.cs" />
+    <Compile Include="Models\ServiceSolicitation\CreateServiceSolicitationRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\SignInService.cs" />
     <Compile Include="Startup.cs" />
@@ -240,14 +244,18 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\App\app.js" />
     <Content Include="Areas\Admin\Scripts\Controllers\AdminAuthenticationController.js" />
-    <Content Include="Areas\Advertiser\Scripts\Controllers\AdvertiserAuthenticationController.js" />
-    <Content Include="Areas\Advertiser\Scripts\Controllers\NewAdvertiserAccountController.js" />
+    <Content Include="Areas\Advertisers\Scripts\Controllers\AdvertiserAuthenticationController.js" />
+    <Content Include="Areas\Advertisers\Scripts\Controllers\NewAdvertiserAccountController.js" />
     <Content Include="Scripts\App\Models\AuthenticateRequest.js" />
     <Content Include="Scripts\App\Models\AuthenticateResponse.js" />
+    <Content Include="Scripts\App\Models\ContractModelForm.js" />
+    <Content Include="Scripts\App\Models\LocationForm.js" />
     <Content Include="Scripts\App\Models\NewAccountRequest.js" />
     <Content Include="Scripts\App\NotificationHandler.js" />
     <Content Include="Scripts\App\Resources\AccountResource.js" />
+    <Content Include="Scripts\App\Resources\ContractModelResource.js" />
     <Content Include="Scripts\App\Resources\LocationResource.js" />
+    <Content Include="Scripts\App\Resources\ServiceSolicitation.js" />
     <Content Include="Scripts\Vendors\Angular\angular-resource.js" />
     <Content Include="Scripts\Vendors\Angular\angular.js" />
     <Content Include="Scripts\Vendors\Angular\angular.min.js" />
@@ -289,20 +297,21 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Scripts\App\Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
-    <Content Include="Areas\Advertiser\Views\Home\Index.cshtml" />
-    <Content Include="Areas\Advertiser\Views\Account\Create.cshtml" />
-    <Content Include="Areas\Advertiser\Views\web.config" />
-    <Content Include="Areas\Advertiser\Views\Account\Login.cshtml" />
+    <Content Include="Areas\Advertisers\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Advertisers\Views\Account\Create.cshtml" />
+    <Content Include="Areas\Advertisers\Views\web.config" />
+    <Content Include="Areas\Advertisers\Views\Account\Login.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Locations\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ContractModel\Index.cshtml" />
+    <Content Include="Areas\Advertisers\Views\ServiceSolicitation\List.cshtml" />
+    <Content Include="Areas\Advertisers\Views\ServiceSolicitation\Create.cshtml" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
