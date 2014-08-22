@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
-using VoceViuModel.ServiceSolicitation;
-using VoceViuModel.ServiceSolicitation.Abstraction;
-using VoceViuModel.ServiceSolicitation.Messages;
-using VoceViuModel.ServiceSolicitation.Services;
+using VoceViuModel.ServiceSolicitations;
+using VoceViuModel.ServiceSolicitations.Abstraction;
+using VoceViuModel.ServiceSolicitations.Messages;
+using VoceViuModel.ServiceSolicitations.Services;
 
 namespace VoceViuWeb.Api
 {

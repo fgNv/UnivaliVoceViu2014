@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VoceViuModel.Locations.Domain;
-using VoceViuModel.ServiceSolicitation;
+using VoceViuModel.ServiceSolicitations;
 
 namespace VoceViuPersistence.Mappings
 {

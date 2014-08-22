@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VoceViuModel.Locations.Services;
-using VoceViuModel.ServiceSolicitation.Services;
+using VoceViuModel.ServiceSolicitations.Services;
 using VoceViuModel.Users;
 using VoceViuModel.Users.Services;
 

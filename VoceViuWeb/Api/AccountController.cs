@@ -71,7 +71,7 @@ namespace VoceViuWeb.Areas.Admin.API
             _authenticationService.AuthenticateAdvertiser(request);
             await _signInService.SignInAdvertiserAsync(user, true);
 
-            return new AuthenticateResponse { ReturnUrl = request.ReturnUrl ?? "/Advertiser/Home" };
+            return new AuthenticateResponse { ReturnUrl = request.ReturnUrl ?? "/Advertiser/Home/Index" };
         }
 
         public async Task<ReturnUrlResponse> CreateNewAdvertiser(AdvertiserNewAccountRequest request)
@@ -79,7 +79,7 @@ namespace VoceViuWeb.Areas.Admin.API
             _advertiserAccountService.AddNewAdvertiser(request);
             var user = _advertiserRepository.Get(request.Email);
             await _signInService.SignInAdvertiserAsync(user, true);
-            return new ReturnUrlResponse("/Advertiser/Home");
+            return new ReturnUrlResponse("/Advertiser/Home/Index");
         }
     }
 }

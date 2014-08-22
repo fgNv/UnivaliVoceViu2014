@@ -4,7 +4,7 @@ using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VoceViuModel.ServiceSolicitation.Domain;
+using VoceViuModel.ServiceSolicitations.Domain;
 
 namespace VoceViuPersistence.Mappings.ServiceSolicitations
 {

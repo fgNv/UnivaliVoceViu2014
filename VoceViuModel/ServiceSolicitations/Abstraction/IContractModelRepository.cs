@@ -9,7 +9,9 @@ namespace VoceViuModel.ServiceSolicitations.Abstraction
 {
     public interface IContractModelRepository
     {
+        IEnumerable<ContractModel> GetAll();
+        ContractModel Get(int id);
         void Add(ContractModel contractModel);
-        void Add(ContractModel object);
+        void Remove(ContractModel contractModel);
     }
 }

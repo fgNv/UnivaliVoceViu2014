@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VoceViuModel.ServiceSolicitation.Abstraction;
-using VoceViuModel.ServiceSolicitation;
+using VoceViuModel.ServiceSolicitations.Abstraction;
+using VoceViuModel.ServiceSolicitations;
 
 namespace VoceViuPersistence.Repositories
 {
@@ -22,17 +22,17 @@ namespace VoceViuPersistence.Repositories
             return _context.ServiceSolicitations;
         }
 
-        public VoceViuModel.ServiceSolicitation.ServiceSolicitation Get(int id)
+        public ServiceSolicitation Get(int id)
         {
             return _context.ServiceSolicitations.FirstOrDefault(ss => ss.Id == id);
         }
 
-        public void Add(VoceViuModel.ServiceSolicitation.ServiceSolicitation solicitation)
+        public void Add(ServiceSolicitation solicitation)
         {
             _context.ServiceSolicitations.Add(solicitation);
         }
 
-        public void Remove(VoceViuModel.ServiceSolicitation.ServiceSolicitation solicitation)
+        public void Remove(ServiceSolicitation solicitation)
         {
             _context.ServiceSolicitations.Remove(solicitation);
         }
