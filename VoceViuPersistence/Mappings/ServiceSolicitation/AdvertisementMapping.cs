@@ -20,7 +20,6 @@ namespace VoceViuPersistence.Mappings
 
             HasMany(a => a.DeniedContent).WithRequired();
 
-            HasRequired(a => a.ContractModel);
 
         }
     }

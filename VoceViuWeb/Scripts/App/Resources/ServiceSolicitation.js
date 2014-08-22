@@ -19,6 +19,11 @@
             method: "GET",
             isArray: false,
             params: { 'action': 'Get' }
+        },
+        getAvailableMonths: {
+            method: "GET",
+            isArray: true,
+            params: { 'action': 'GetAvailableMonths' }
         }
     });
 });

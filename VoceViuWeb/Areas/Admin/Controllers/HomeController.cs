@@ -8,9 +8,9 @@ using VoceViuWeb.Services;
 
 namespace VoceViuWeb.Areas.Admin.Controllers
 {
+    [AuthorizeByClaimAttribute(SignInService.PROFILE_TYPE_ADMIN)]
     public class HomeController : Controller
     {
-        [AuthorizeByClaimAttribute(SignInService.PROFILE_TYPE_ADMIN)]
         public ActionResult Index()
         {
             return View();

@@ -12,6 +12,7 @@ namespace VoceViuModel.ServiceSolicitations.Messages
         public DateTime EndDate { get; set; }
         public int LocationId { get; set; }
         public int AdvertiserId { get; set; }
+        public int ContractModelId { get; set; }
     }
 }
 

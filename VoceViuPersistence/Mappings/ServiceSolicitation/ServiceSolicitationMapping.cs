@@ -18,6 +18,8 @@ namespace VoceViuPersistence.Mappings.ServiceSolicitations
             HasOptional(s => s.Advertisement).WithRequired();
 
             HasRequired(s => s.Advertiser);
+
+            HasRequired(a => a.ContractModel);
         }
 
     }

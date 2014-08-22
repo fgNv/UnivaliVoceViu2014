@@ -12,7 +12,6 @@ namespace VoceViuModel.ServiceSolicitations
         public int Id { get; set; }
         public AdvertisementStatus Status {get; set;}
         public ICollection<AdvertisementContent> DeniedContent { get; set; }
-        public ContractModel ContractModel { get; set; }
         public Byte[] File { get; set; }
         public string FileName { get; set; }
     }

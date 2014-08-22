@@ -25,12 +25,17 @@ namespace VoceViuWeb.Filters
         public void OnAuthenticationChallenge(AuthenticationChallengeContext filterContext)
         {
             var user = filterContext.HttpContext.User;
-            if (user == null || !user.Identity.IsAuthenticated)
+            if (user == null || !user.Identity.IsAuthenticated) { 
                 filterContext.Result = new HttpUnauthorizedResult();
+                return;
+            }
 
             var identity = user.Identity as ClaimsIdentity;
-            if(identity == null)
+            if (identity == null)
+            {
                 filterContext.Result = new HttpUnauthorizedResult();
+                return;
+            }
 
             var profileType = identity.Claims.FirstOrDefault(c => c.Type == SignInService.PROFILE_TYPE_CLAIMS_KEY);
             if (profileType == null) { 
@@ -39,7 +44,9 @@ namespace VoceViuWeb.Filters
             }
 
             if (!_profileType.Contains(profileType.Value))
-                filterContext.Result = new HttpUnauthorizedResult();
+                filterContext.Result = profileType.Value == SignInService.PROFILE_TYPE_ADMIN ? 
+                    new RedirectResult("/Advertiser/Account/Login") :
+                    new RedirectResult("/Admin/Account/Login");
         }
     }
 }

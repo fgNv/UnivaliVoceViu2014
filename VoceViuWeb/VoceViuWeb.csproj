@@ -216,6 +216,10 @@
     </Compile>
     <Compile Include="Helpers\IPrincipalExtensions.cs" />
     <Compile Include="Helpers\RequestExtensions.cs" />
+    <Compile Include="Migrations\201408222110134_alterarContracM.cs" />
+    <Compile Include="Migrations\201408222110134_alterarContracM.Designer.cs">
+      <DependentUpon>201408222110134_alterarContracM.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account\AdvertiserNewAccountRequest.cs" />
     <Compile Include="Models\Authentication\AuthenticateRequest.cs" />
@@ -257,7 +261,7 @@
     <Content Include="Scripts\App\Models\ContractModelForm.js" />
     <Content Include="Scripts\App\Models\LocationForm.js" />
     <Content Include="Scripts\App\Models\NewAccountRequest.js" />
-    <Content Include="Scripts\App\Models\NewServiceSolicitationForm.js" />
+    <Content Include="Scripts\App\Models\NewServiceSolicitation.js" />
     <Content Include="Scripts\App\NotificationHandler.js" />
     <Content Include="Scripts\App\Resources\AccountResource.js" />
     <Content Include="Scripts\App\Resources\ContractModelResource.js" />
@@ -328,6 +332,11 @@
       <Project>{de0e07d2-cab3-4a84-a77f-2ad0e4da5b32}</Project>
       <Name>VoceViuPersistence</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201408222110134_alterarContracM.resx">
+      <DependentUpon>201408222110134_alterarContracM.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

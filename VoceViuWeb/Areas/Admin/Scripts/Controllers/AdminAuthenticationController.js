@@ -33,8 +33,6 @@
                     notificationHandler.AddNotificiation("Houve uma falha na autenticação", response.data.Messages, response.data.Type);
                     $scope.pendingRequests--;
                 });
-
-
         };
 
     }]);

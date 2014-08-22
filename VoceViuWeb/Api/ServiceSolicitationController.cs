@@ -38,15 +38,34 @@ namespace VoceViuWeb.Api
 
         public void Add(CreateServiceSolicitationRequest request)
         {
+            var splittedStartMonth = request.StartMonth.Split('/');
+            var startMonth = Int32.Parse(splittedStartMonth[0]);
+            var startYear = Int32.Parse(splittedStartMonth[1]);
+            var startDate = new DateTime(startYear, startMonth, 1);
+
             var message = new CreateServiceSolicitationMessage();
             var user = HttpContext.Current.User;
 
             message.LocationId = request.LocationId;
             message.AdvertiserId = user.GetUserId();
-            message.StartDate = request.StartDate;
-            message.EndDate = request.EndDate;
+            message.StartDate = startDate;
+            message.EndDate = startDate.AddMonths(request.MonthQuantity);
+            message.ContractModelId = request.ContractModelId;
 
             _serviceSolicitationService.Create(message);
+        }
+
+        [HttpGet]
+        public IEnumerable<MonthOption> GetAvailableMonths()
+        {
+            var now = DateTime.Now;
+            for (var i = 1; i < 6; i++)
+                yield return new MonthOption { Text = String.Format("{0:MM/yyyy}", now.AddMonths(i)) };
+        }
+
+        public class MonthOption
+        {
+            public string Text { get; set; }
         }
     }
 }
