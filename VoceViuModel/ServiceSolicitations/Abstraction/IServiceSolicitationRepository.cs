@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VoceViuModel.Abstractions;
 
-namespace VoceViuModel.ServiceSolicitation.Abstraction
+namespace VoceViuModel.ServiceSolicitations.Abstraction
 {
     public interface IServiceSolicitationRepository : IRepository
     {

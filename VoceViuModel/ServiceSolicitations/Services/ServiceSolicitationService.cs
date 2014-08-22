@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VoceViuModel.Locations.Abstractions;
-using VoceViuModel.ServiceSolicitation.Abstraction;
-using VoceViuModel.ServiceSolicitation.Messages;
+using VoceViuModel.ServiceSolicitations.Abstraction;
+using VoceViuModel.ServiceSolicitations.Messages;
 using VoceViuModel.Users.Abstractions;
 
-namespace VoceViuModel.ServiceSolicitation.Services
+namespace VoceViuModel.ServiceSolicitations.Services
 {
     public class ServiceSolicitationService
     {

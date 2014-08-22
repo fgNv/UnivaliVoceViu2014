@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VoceViuModel.ServiceSolicitation.Domain;
 
-namespace VoceViuModel.ServiceSolicitation
+namespace VoceViuModel.ServiceSolicitations
 {
     public class Advertisement
     {

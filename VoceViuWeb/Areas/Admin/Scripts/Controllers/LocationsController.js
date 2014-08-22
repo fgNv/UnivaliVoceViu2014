@@ -6,7 +6,7 @@
 
         this.Name = location.Name || "";
         this.Spot = location.Spot || 0;
-        this.IP = location.Ip || "";
+        this.IP = location.IP || "";
         this.Points = location.Points || [];
         this.Id = location.Id || null;
 
@@ -16,7 +16,7 @@
             self.Points.push(new Point());
         };
 
-        this.removePoint = function(point){
+        this.removePoint = function (point) {
             self.Points = Enumerable.From(self.Points).Where(function (i) { return i != point }).ToArray();
         };
     };
@@ -38,7 +38,6 @@
 
         $scope.step = 'list';
         $scope.locations = [];
-        $scope.form = new LocationForm();
 
         $scope.showForm = function () {
             $scope.step = 'form';
@@ -46,6 +45,17 @@
 
         $scope.showList = function () {
             $scope.step = 'list';
+        };
+
+        $scope.edit = function (location) {
+            $scope.formTitle = "Editar local";
+            $scope.form = new LocationForm(location);
+            $scope.showForm();
+        };
+
+        $scope.clear = function () {
+            $scope.formTitle = "Criar novo local";
+            $scope.form = new LocationForm();
         };
 
         var _getLocations = function () {
@@ -66,11 +76,13 @@
             $scope.pendingRequests++;
             LocationResource.remove(
                 { id: data.Id },
-                {  },
+                {},
                 function (response) {
                     notificationManager.AddSuccessNotificiation("Local excluido com sucesso");
                     _getLocations();
                     $scope.pendingRequests--;
+                    if ($scope.form.Id == data.Id)
+                        $scope.clear();
                 },
                 function (response) {
                     $scope.pendingRequests--;
@@ -83,19 +95,42 @@
                 });
         };
 
-        $scope.save = function () {
+        var _add = function () {
             $scope.pendingRequests++;
             LocationResource.add(
                 $scope.form,
                 function (response) {
                     notificationManager.AddSuccessNotificiation("Local criado com sucesso");
                     _getLocations();
+                    $scope.clear();
+                    $scope.showList();
                     $scope.pendingRequests--;
                 },
                 function (response) {
                     $scope.pendingRequests--;
                     var title = "Houve uma falha ao criar o local";
-                    if (!response.data.messages){
+                    if (!response.data.messages) {
+                        notificationManager.AddNotificiation(title, ["Não foi possível conectar ao servidor"], "error");
+                        return;
+                    }
+                    notificationManager.AddNotificiation(title, response.data.messages, "error");
+                });
+        }
+
+        var _update = function () {
+            $scope.pendingRequests++;
+            LocationResource.update(
+                { id: $scope.form .Id},
+                $scope.form,
+                function (response) {
+                    notificationManager.AddSuccessNotificiation("Local atualizado com sucesso");
+                    _getLocations();
+                    $scope.pendingRequests--;
+                },
+                function (response) {
+                    $scope.pendingRequests--;
+                    var title = "Houve uma falha ao atualizar o local";
+                    if (!response.data.messages) {
                         notificationManager.AddNotificiation(title, ["Não foi possível conectar ao servidor"], "error");
                         return;
                     }
@@ -103,7 +138,15 @@
                 });
         };
 
+        $scope.save = function () {
+            if (!$scope.form.Id)
+                _add();
+            else
+                _update();
+        };
+
         var _init = function () {
+            $scope.clear();
             _getLocations();
         };
 

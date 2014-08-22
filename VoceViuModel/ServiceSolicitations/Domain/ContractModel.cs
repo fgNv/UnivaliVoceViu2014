@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace VoceViuModel.ServiceSolicitation.Domain
+namespace VoceViuModel.ServiceSolicitations.Domain
 {
     public class ContractModel
     {

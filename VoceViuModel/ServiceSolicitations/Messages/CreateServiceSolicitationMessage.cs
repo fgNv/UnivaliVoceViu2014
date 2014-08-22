@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VoceViuModel.ServiceSolicitation.Messages
+namespace VoceViuModel.ServiceSolicitations.Messages
 {
     public class CreateServiceSolicitationMessage
     {

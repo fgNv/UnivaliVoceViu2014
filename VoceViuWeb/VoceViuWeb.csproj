@@ -198,6 +198,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Api\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ContractModelController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LocationsController.cs" />
     <Compile Include="Areas\Advertiser\AdvertiserAreaRegistration.cs" />
@@ -230,6 +231,7 @@
     <Compile Include="Models\Authentication\AuthenticateResponse.cs" />
     <Compile Include="Models\Authentication\Implementations\AdministratorStore.cs" />
     <Compile Include="Models\Authentication\Implementations\AdvertiserStore.cs" />
+    <Compile Include="Models\ContractModel\CreateContractModelRequest.cs" />
     <Compile Include="Models\NotificationResponse.cs" />
     <Compile Include="Models\ReturnUrlResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -237,6 +239,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Scripts\Controllers\ContractModelController.js" />
     <Content Include="Areas\Admin\Scripts\Controllers\LocationsController.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -311,6 +314,7 @@
     <Content Include="Areas\Advertiser\Views\Account\Login.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Locations\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ContractModel\Index.cshtml" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Location = VoceViuModel.Locations.Domain.Location;
 using Advertiser = VoceViuModel.Users.Advertiser;
 
-namespace VoceViuModel.ServiceSolicitation
+namespace VoceViuModel.ServiceSolicitations
 {
     public class ServiceSolicitation
     {

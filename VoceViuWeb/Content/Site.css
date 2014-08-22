@@ -45,4 +45,5 @@ input[type="checkbox"].input-validation-error {
     background-image: url(Images/Loading.gif);
     background-repeat: no-repeat;
     background-position: center;
+    z-index: 150;
 }
