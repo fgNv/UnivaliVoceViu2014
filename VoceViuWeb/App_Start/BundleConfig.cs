@@ -28,7 +28,7 @@ namespace VoceViuWeb
                         "~/Scripts/App/app.js",
                         "~/Scripts/App/Resources/*.js",
                         "~/Areas/Admin/Scripts/Controllers/*.js",
-                        "~/Areas/Advertisers/Scripts/Controllers/*.js",
+                        "~/Areas/Advertiser/Scripts/Controllers/*.js",
                         "~/Scripts/App/Models/*.js"
                         ));
 

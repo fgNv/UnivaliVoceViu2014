@@ -11,7 +11,7 @@
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gerenciamento<b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Lista de anunciantes</a></li>
+                    <li><a href="@Url.Action("Index", "ServiceSolicitation", new { Area = "admin" })">Lista de anunciantes</a></li>
                     <li><a href="#">Lista de solicitações de serviço</a></li>
                 </ul>
             </li>
@@ -33,8 +33,8 @@
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Solicitações de serviço <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="@Url.Action("Create", "ServiceSolicitation", new { Area = "advertisers" })">Criar nova solicitação de serviço</a></li>
-                    <li><a href="#">Minhas solicitações de serviço</a></li>
+                    <li><a href="@Url.Action("Create", "ServiceSolicitation", new { Area = "advertiser" })">Criar nova solicitação de serviço</a></li>
+                    <li><a href="@Url.Action("List", "ServiceSolicitation", new { Area = "advertiser" })">Minhas solicitações de serviço</a></li>
                 </ul>
             </li>
         }
@@ -48,7 +48,7 @@
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Seja anunciante", "Create", "Account", routeValues: new { Area = "Advertisers" }, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Autenticar", "Login", "Account", routeValues: new { Area = "Advertisers" }, htmlAttributes: new { id = "loginLink" })</li>
+        <li>@Html.ActionLink("Seja anunciante", "Create", "Account", routeValues: new { Area = "Advertiser" }, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Autenticar", "Login", "Account", routeValues: new { Area = "Advertiser" }, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
 }

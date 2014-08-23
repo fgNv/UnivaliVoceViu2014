@@ -1,22 +1,27 @@
 ﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml"; ;
+    ViewBag.Title = "Autenticação";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="row" data-ng-controller="AdminAuthenticationController">
+<h2>@ViewBag.Title</h2>
+<div class="row" data-ng-controller="AdvertiserAuthenticationController" >
     <div class="loading" data-ng-show="pendingRequests > 0"></div>
     <div class="col-md-8">
         <section class="form-horizontal">
-            <h2>Login da área administrativa</h2>
+            <h4>Forneça suas credenciais para autenticar</h4>
             <hr />
 
             @MyHelpers.NgModelText("Usuário", "userName", "form.Username")
-            @MyHelpers.NgModelPassword("Senha", "userName", "form.Password")
-
+            @MyHelpers.NgModelPassword("Senha", "password", "form.Password")
+            
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <button type="button" class="btn btn-default" data-ng-click="authenticate()">Autenticar</button>
                 </div>
             </div>
+            <p>
+                <a href="@Url.Action("Create","Account",new{Area = "Advertiser"})">Registre-se</a> caso você não tenha uma conta
+            </p>
         </section>
     </div>
 </div>

@@ -202,10 +202,11 @@
     <Compile Include="Areas\Admin\Controllers\ContractModelController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LocationsController.cs" />
-    <Compile Include="Areas\Advertisers\AdvertiserAreaRegistration.cs" />
-    <Compile Include="Areas\Advertisers\Controllers\AccountController.cs" />
-    <Compile Include="Areas\Advertisers\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Advertisers\Controllers\ServiceSolicitationController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ServiceSolicitationController.cs" />
+    <Compile Include="Areas\Advertiser\AdvertiserAreaRegistration.cs" />
+    <Compile Include="Areas\Advertiser\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Advertiser\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Advertiser\Controllers\ServiceSolicitationController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Generated\HomeController.cs" />
     <Compile Include="Exceptions\ValidationException.cs" />
@@ -216,10 +217,6 @@
     </Compile>
     <Compile Include="Helpers\IPrincipalExtensions.cs" />
     <Compile Include="Helpers\RequestExtensions.cs" />
-    <Compile Include="Migrations\201408222110134_alterarContracM.cs" />
-    <Compile Include="Migrations\201408222110134_alterarContracM.Designer.cs">
-      <DependentUpon>201408222110134_alterarContracM.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account\AdvertiserNewAccountRequest.cs" />
     <Compile Include="Models\Authentication\AuthenticateRequest.cs" />
@@ -237,7 +234,9 @@
   <ItemGroup>
     <Content Include="Areas\Admin\Scripts\Controllers\ContractModelController.js" />
     <Content Include="Areas\Admin\Scripts\Controllers\LocationsController.js" />
-    <Content Include="Areas\Advertisers\Scripts\Controllers\CreateServiceSolicitationController.js" />
+    <Content Include="Areas\Admin\Scripts\Controllers\ServiceSolicitationManagementController.js" />
+    <Content Include="Areas\Advertiser\Scripts\Controllers\CreateServiceSolicitationController.js" />
+    <Content Include="Areas\Advertiser\Scripts\Controllers\myServiceSolicitationController.js" />
     <Content Include="Content\AngularStrap\angular-motion.min.css" />
     <Content Include="Content\AngularStrap\bootstrap-additions.min.css" />
     <Content Include="Content\AngularStrap\font-awesome.min.css" />
@@ -254,8 +253,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\App\app.js" />
     <Content Include="Areas\Admin\Scripts\Controllers\AdminAuthenticationController.js" />
-    <Content Include="Areas\Advertisers\Scripts\Controllers\AdvertiserAuthenticationController.js" />
-    <Content Include="Areas\Advertisers\Scripts\Controllers\NewAdvertiserAccountController.js" />
+    <Content Include="Areas\Advertiser\Scripts\Controllers\AdvertiserAuthenticationController.js" />
+    <Content Include="Areas\Advertiser\Scripts\Controllers\NewAdvertiserAccountController.js" />
     <Content Include="Scripts\App\Models\AuthenticateRequest.js" />
     <Content Include="Scripts\App\Models\AuthenticateResponse.js" />
     <Content Include="Scripts\App\Models\ContractModelForm.js" />
@@ -312,15 +311,17 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
-    <Content Include="Areas\Advertisers\Views\Home\Index.cshtml" />
-    <Content Include="Areas\Advertisers\Views\Account\Create.cshtml" />
-    <Content Include="Areas\Advertisers\Views\web.config" />
-    <Content Include="Areas\Advertisers\Views\Account\Login.cshtml" />
+    <Content Include="Areas\Advertiser\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Advertiser\Views\Account\Create.cshtml" />
+    <Content Include="Areas\Advertiser\Views\web.config" />
+    <Content Include="Areas\Advertiser\Views\Account\Login.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Locations\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ContractModel\Index.cshtml" />
-    <Content Include="Areas\Advertisers\Views\ServiceSolicitation\List.cshtml" />
-    <Content Include="Areas\Advertisers\Views\ServiceSolicitation\Create.cshtml" />
+    <Content Include="Areas\Advertiser\Views\ServiceSolicitation\List.cshtml" />
+    <Content Include="Areas\Advertiser\Views\ServiceSolicitation\Create.cshtml" />
+    <Content Include="App_Code\MyHelpers.cshtml" />
+    <Content Include="Areas\Admin\Views\ServiceSolicitation\Index.cshtml" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
@@ -332,11 +333,6 @@
       <Project>{de0e07d2-cab3-4a84-a77f-2ad0e4da5b32}</Project>
       <Name>VoceViuPersistence</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201408222110134_alterarContracM.resx">
-      <DependentUpon>201408222110134_alterarContracM.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

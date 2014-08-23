@@ -25,23 +25,23 @@
                 }
 
                 $scope.pendingRequests++;
-                LocationResource.add(
+                ServiceSolicitationResource.add(
                     $scope.form,
                     function (response) {
                         notificationHandler.AddSuccessNotificiation("Solicitação de serviço enviada com sucesso");
                         $scope.pendingRequests--;
                     },
                     function (response) {
+                        $scope.pendingRequests--;
                         if (!response.data.messages) {
                             notificationHandler.AddNotificiation(errorTitle, ["Não foi possível conectar ao servidor"], "error");
                             return;
                         }
                         notificationHandler.AddNotificiation(errorTitle, response.data.messages, "error");
-                        $scope.pendingRequests--;
                     });
             };
 
-            var _getAvailableMonth = function () {
+            var _getAvailableMonths = function () {
                 $scope.pendingRequests++;
                 ServiceSolicitationResource.getAvailableMonths(
                     {},
@@ -81,8 +81,9 @@
             };
 
             var _init = function () {
-                _getAvailableMonth();
+                _getAvailableMonths();
                 _getLocations();
+                _getContractModels();
             };
 
             _init();

@@ -8,7 +8,7 @@ namespace VoceViuWeb.Areas.Admin
         {
             get 
             {
-                return "Advertisers";
+                return "Advertiser";
             }
         }
 

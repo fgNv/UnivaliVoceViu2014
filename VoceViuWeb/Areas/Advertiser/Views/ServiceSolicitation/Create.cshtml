@@ -1,11 +1,13 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Solicitar serviço";
 }
 
 <div data-ng-controller="createServiceSolicitationController">
 
     <div class="loading" data-ng-show="pendingRequests > 0"></div>
-    <h2>Criar nova conta de anunciante</h2>
+    <h2>Solicitar serviço</h2>
+    <hr />
     <section class="form-horizontal">
         <div class="form-group">
             <label class="col-md-2 control-label" for="initialMonth">
@@ -14,8 +16,8 @@
             <div class="col-md-10">
                 <select class="form-control"
                         id="initialMonth"
-                        data-ng-options="month.Text for month in months"
-                        data-ng-model="form.Month">
+                        data-ng-options="month.Text as month.Text for month in months"
+                        data-ng-model="form.StartMonth">
                     <option value="">Escolha o mês de início</option>
                 </select>
             </div>
@@ -52,7 +54,7 @@
                 <select class="form-control"
                         id="initialMonth"
                         data-ng-options="contractModel.Id as contractModel.Name for contractModel in contractModels"
-                        data-ng-model="form.LocationId">
+                        data-ng-model="form.ContractModelId">
                     <option value="">Escolha o modelo de contrato</option>
                 </select>
             </div>
@@ -64,4 +66,5 @@
         </div>
 
     </section>
+
 </div>

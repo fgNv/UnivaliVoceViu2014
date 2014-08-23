@@ -15,12 +15,17 @@ namespace VoceViuModel.ServiceSolicitations.Services
         private readonly IServiceSolicitationRepository _serviceSolicitationRepository;
         private readonly ILocationRepository _locationRepository;
         private readonly IAdvertiserRepository _advertiserRepository;
+        private readonly IContractModelRepository _contractModelRepository;
 
-        public ServiceSolicitationService(IServiceSolicitationRepository serviceSolicitationRepository, ILocationRepository locationRepository, IAdvertiserRepository advertiserRepository)
+        public ServiceSolicitationService(IServiceSolicitationRepository serviceSolicitationRepository, 
+                                          ILocationRepository locationRepository,
+                                          IAdvertiserRepository advertiserRepository,
+                                          IContractModelRepository contractModelRepository)
         {
             _serviceSolicitationRepository = serviceSolicitationRepository;
             _locationRepository = locationRepository;
             _advertiserRepository = advertiserRepository;
+            _contractModelRepository = contractModelRepository;
         }
 
         public void Create(CreateServiceSolicitationMessage message)
@@ -29,6 +34,7 @@ namespace VoceViuModel.ServiceSolicitations.Services
             serviceSolicitation.Location = _locationRepository.Get(message.LocationId);
             serviceSolicitation.Advertiser = _advertiserRepository.Get(message.AdvertiserId);
             serviceSolicitation.EndDate = message.EndDate;
+            serviceSolicitation.ContractModel = _contractModelRepository.Get(message.ContractModelId);
             serviceSolicitation.MonthlyValue = serviceSolicitation.Location.MonthlyValue;
             serviceSolicitation.StartDate = message.StartDate;
 
