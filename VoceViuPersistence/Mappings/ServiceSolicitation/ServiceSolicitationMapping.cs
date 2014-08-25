@@ -15,7 +15,7 @@ namespace VoceViuPersistence.Mappings.ServiceSolicitations
             ToTable("VV_ServiceSolicitations");
             HasKey(a => a.Id);
 
-            HasOptional(s => s.Advertisement).WithRequired();
+            HasOptional(s => s.Advertisement).WithRequired(a => a.ServiceSolicitation);
 
             HasRequired(s => s.Advertiser);
 

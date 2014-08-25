@@ -14,10 +14,7 @@ namespace VoceViuPersistence.Mappings.ServiceSolicitations
         {
             ToTable("VV_ContractModel");
             HasKey(a => a.Id);
-
-            Property(cm => cm.File).IsOptional();
-            Property(cm => cm.FileName).IsOptional();
-
+            HasOptional(cm => cm.Content);
         }
     }
 }

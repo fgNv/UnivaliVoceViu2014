@@ -8,8 +8,8 @@ namespace VoceViuModel.ServiceSolicitations.Domain
 {
     public enum AdvertisementStatus
     {
-        PendingDispatch,// EnvioPendente,
-        PendingApproval,// AprovacaoPendente,
+        PendingContentDispatch,// EnvioDeConteudoPendente,
+        PendingContentApproval,// AprovacaoDeConteudoPendente,
         PendingPayment,// PagamentoPendente,
         AwaitingExibhitionPeriod,// AguardandoPeriodoExibicao,
         ExibhitionHappening,// ExibicaoEmAndamento,

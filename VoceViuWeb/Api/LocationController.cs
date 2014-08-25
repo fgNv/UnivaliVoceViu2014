@@ -12,7 +12,7 @@ using VoceViuWeb.Services;
 
 namespace VoceViuWeb.Api
 {
-    //[AuthorizeByClaimAttribute(SignInService.PROFILE_TYPE_ADMIN, SignInService.PROFILE_TYPE_ADVERTISER)]
+    [AuthorizeByClaimAttribute(SignInService.PROFILE_TYPE_ADMIN, SignInService.PROFILE_TYPE_ADVERTISER)]
     public class LocationController : ApiController
     {
         private readonly ILocationRepository _locationRepository;
@@ -36,16 +36,19 @@ namespace VoceViuWeb.Api
             return _locationRepository.Get(id);
         }
 
+        [AuthorizeByClaimAttribute(SignInService.PROFILE_TYPE_ADMIN)]
         public void Add(SaveLocationMessage message)
         {
             _locationService.Add(message);
         }
 
+        [AuthorizeByClaimAttribute(SignInService.PROFILE_TYPE_ADMIN)]
         public void Update(int id, SaveLocationMessage message)
         {
             _locationService.Update(message, id);
         }
 
+        [AuthorizeByClaimAttribute(SignInService.PROFILE_TYPE_ADMIN)]
         public void Remove(int id)
         {
             _locationService.Remove(id);

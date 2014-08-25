@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VoceViuModel.Attachments;
 using VoceViuModel.ServiceSolicitations.Domain;
 
 namespace VoceViuModel.ServiceSolicitations
@@ -11,8 +12,8 @@ namespace VoceViuModel.ServiceSolicitations
     {
         public int Id { get; set; }
         public AdvertisementStatus Status {get; set;}
-        public ICollection<AdvertisementContent> DeniedContent { get; set; }
-        public Byte[] File { get; set; }
-        public string FileName { get; set; }
+        public ICollection<AdvertisementContent> DeniedContents { get; set; }
+        public Attachment Content { get; set; }
+        public ServiceSolicitation ServiceSolicitation { get; set; }
     }
 }

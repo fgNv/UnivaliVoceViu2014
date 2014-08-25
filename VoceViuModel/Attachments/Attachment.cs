@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VoceViuModel.Attachments;
 
-namespace VoceViuModel.AdminContent
+namespace VoceViuModel.Attachments
 {
-    public class Content
+    public class Attachment
     {
         public int Id { get; set; }
-        public Attachment Attachment { get; set; }
+        public string Name { get; set; }
+        public byte[] File { get; set; }
     }
 }

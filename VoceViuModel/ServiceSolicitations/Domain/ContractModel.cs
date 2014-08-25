@@ -1,4 +1,5 @@
 ﻿using System;
+using VoceViuModel.Attachments;
 
 namespace VoceViuModel.ServiceSolicitations.Domain
 {
@@ -8,8 +9,6 @@ namespace VoceViuModel.ServiceSolicitations.Domain
         public string Name { get; set; }
         public string Terms { get; set; }
         public string Summary { get; set; }
-        public byte[] File { get; set; }
-        public string FileName { get; set; }
-
+        public Attachment Content { get; set; }
     }
 }

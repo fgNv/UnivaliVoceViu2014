@@ -18,9 +18,8 @@ namespace VoceViuPersistence.Mappings
             ToTable("VV_Advertisements");
             HasKey(a => a.Id);
 
-            HasMany(a => a.DeniedContent).WithRequired();
-
-
+            HasMany(a => a.DeniedContents).WithRequired();
+            HasOptional(a => a.Content);
         }
     }
 }

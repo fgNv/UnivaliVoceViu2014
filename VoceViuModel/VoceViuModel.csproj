@@ -55,12 +55,14 @@
     <Compile Include="AdminContent\Domain\Content.cs" />
     <Compile Include="AdminContent\Messages\SaveContentMessage.cs" />
     <Compile Include="AdminContent\Services\ContentServices.cs" />
+    <Compile Include="Attachments\Attachment.cs" />
     <Compile Include="Exceptions\ExceptionExtensions.cs" />
     <Compile Include="Locations\Abstractions\ILocationRepository.cs" />
     <Compile Include="Locations\Domain\Location.cs" />
     <Compile Include="Locations\Domain\Point.cs" />
     <Compile Include="Locations\Messages\SaveLocationMessage.cs" />
     <Compile Include="Locations\Services\LocationService.cs" />
+    <Compile Include="ServiceSolicitations\Abstraction\IAdvertisementRepository.cs" />
     <Compile Include="ServiceSolicitations\Abstraction\IContractModelRepository.cs" />
     <Compile Include="ServiceSolicitations\Abstraction\IServiceSolicitationRepository.cs" />
     <Compile Include="ServiceSolicitations\Domain\Advertisement.cs" />
@@ -69,7 +71,10 @@
     <Compile Include="ServiceSolicitations\Domain\ServiceSolicitation.cs" />
     <Compile Include="ServiceSolicitations\Domain\AdvertisementStatus.cs" />
     <Compile Include="ServiceSolicitations\Messages\CreateServiceSolicitationMessage.cs" />
+    <Compile Include="ServiceSolicitations\Messages\DenyAdvertisementContentMessage.cs" />
     <Compile Include="ServiceSolicitations\Messages\SaveContractModelMessage.cs" />
+    <Compile Include="ServiceSolicitations\Messages\SetAdvertisementContentMessage.cs" />
+    <Compile Include="ServiceSolicitations\Services\AdvertisementService.cs" />
     <Compile Include="ServiceSolicitations\Services\ContractModelService.cs" />
     <Compile Include="ServiceSolicitations\Services\ServiceSolicitationService.cs" />
     <Compile Include="Setup.cs" />

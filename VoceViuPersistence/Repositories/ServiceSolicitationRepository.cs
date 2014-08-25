@@ -20,12 +20,15 @@ namespace VoceViuPersistence.Repositories
 
         public IEnumerable<ServiceSolicitation> GetAll()
         {
-            return _context.ServiceSolicitations;
+            return _context.ServiceSolicitations
+                           .Include(ss => ss.Advertisement);
         }
 
         public ServiceSolicitation Get(int id)
         {
-            return _context.ServiceSolicitations.FirstOrDefault(ss => ss.Id == id);
+            return _context.ServiceSolicitations
+                           .Include(ss => ss.Advertisement)
+                           .FirstOrDefault(ss => ss.Id == id);
         }
 
         public void Add(ServiceSolicitation solicitation)

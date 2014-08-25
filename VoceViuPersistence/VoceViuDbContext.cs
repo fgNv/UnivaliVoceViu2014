@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VoceViuModel.Attachments;
 using VoceViuModel.Locations.Domain;
 using VoceViuModel.ServiceSolicitations;
 using VoceViuModel.ServiceSolicitations.Domain;
@@ -25,6 +26,7 @@ namespace VoceViuPersistence
         public DbSet<Advertisement> Advertisement { get; set; }
         public DbSet<ContractModel> ContractModels { get; set; }
         public DbSet<ServiceSolicitation> ServiceSolicitations { get; set; }
+        public DbSet<Attachment> Attachments { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

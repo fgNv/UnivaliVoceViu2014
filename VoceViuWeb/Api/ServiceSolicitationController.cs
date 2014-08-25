@@ -36,6 +36,12 @@ namespace VoceViuWeb.Api
             return _serviceSolicitationRepository.GetByAdvertiser(user.GetUserId());
         }
 
+        [AuthorizeByClaimAttribute(SignInService.PROFILE_TYPE_ADMIN)]
+        public void ApproveServiceSolicitation(int id)
+        {
+            _serviceSolicitationService.Approve(id);
+        }
+
         public void Add(CreateServiceSolicitationRequest request)
         {
             var splittedStartMonth = request.StartMonth.Split('/');

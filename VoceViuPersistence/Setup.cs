@@ -25,6 +25,7 @@ namespace VoceViuPersistence
             container.Register<ILocationRepository, LocationRepository>(lifestyle);
             container.Register<IServiceSolicitationRepository, ServiceSolicitationRepository>(lifestyle);
             container.Register<IContractModelRepository, ContractModelRepository>(lifestyle);
+            container.Register<IAdvertisementRepository, AdvertisementRepository>();
         }
     }
 }

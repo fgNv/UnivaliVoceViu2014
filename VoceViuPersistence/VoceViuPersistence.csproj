@@ -55,6 +55,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Repositories\AdvertisementRepository.cs" />
+    <Compile Include="Mappings\Attachments\AttachmentMapping.cs" />
     <Compile Include="Mappings\Locations\LocationMapping.cs" />
     <Compile Include="Mappings\Locations\PointMapping.cs" />
     <Compile Include="Mappings\ServiceSolicitation\AdvertisementContentMapping.cs" />

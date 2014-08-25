@@ -16,16 +16,19 @@ namespace VoceViuModel.ServiceSolicitations.Services
         private readonly ILocationRepository _locationRepository;
         private readonly IAdvertiserRepository _advertiserRepository;
         private readonly IContractModelRepository _contractModelRepository;
+        private readonly IAdvertisementRepository _advertisementRepository;
 
         public ServiceSolicitationService(IServiceSolicitationRepository serviceSolicitationRepository, 
                                           ILocationRepository locationRepository,
                                           IAdvertiserRepository advertiserRepository,
-                                          IContractModelRepository contractModelRepository)
+                                          IContractModelRepository contractModelRepository,
+                                          IAdvertisementRepository advertisementRepository)
         {
             _serviceSolicitationRepository = serviceSolicitationRepository;
             _locationRepository = locationRepository;
             _advertiserRepository = advertiserRepository;
             _contractModelRepository = contractModelRepository;
+            _advertisementRepository = advertisementRepository;
         }
 
         public void Create(CreateServiceSolicitationMessage message)
@@ -39,6 +42,20 @@ namespace VoceViuModel.ServiceSolicitations.Services
             serviceSolicitation.StartDate = message.StartDate;
 
             _serviceSolicitationRepository.Add(serviceSolicitation);
+            _serviceSolicitationRepository.SaveChanges();
+        }
+
+        public void Approve(int serviceSolicitationId)
+        {
+            var serviceSolicitation = _serviceSolicitationRepository.Get(serviceSolicitationId);
+
+            if (serviceSolicitation.Advertisement != null)
+                throw new Exception("Essa solicitação de serviço já foi aprovada");
+
+            var advertisement = new Advertisement();
+            serviceSolicitation.Advertisement = advertisement;
+            advertisement.Status = Domain.AdvertisementStatus.PendingContentDispatch;
+            _advertisementRepository.Add(advertisement);
             _serviceSolicitationRepository.SaveChanges();
         }
     }
