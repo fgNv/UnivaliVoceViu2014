@@ -90,6 +90,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Users\Services\AdministratorAccountService.cs" />
     <Compile Include="Users\Services\AdvertiserAccountService.cs" />
+    <Compile Include="Users\Services\AdvertiserService.cs" />
     <Compile Include="Users\Services\AuthenticationService.cs" />
     <Compile Include="Users\Services\CryptographyService.cs" />
   </ItemGroup>

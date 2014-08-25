@@ -187,6 +187,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\AdvertiserController.cs" />
     <Compile Include="Api\ContractModelController.cs" />
     <Compile Include="Api\LocationController.cs" />
     <Compile Include="Api\ServiceSolicitationController.cs" />
