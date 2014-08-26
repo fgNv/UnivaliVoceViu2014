@@ -36,8 +36,17 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector">
+      <HintPath>..\packages\SimpleInjector.2.5.2\lib\net45\SimpleInjector.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector.Diagnostics">
+      <HintPath>..\packages\SimpleInjector.2.5.2\lib\net45\SimpleInjector.Diagnostics.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,9 +55,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Repositories\AdvertisementRepository.cs" />
+    <Compile Include="Mappings\Attachments\AttachmentMapping.cs" />
+    <Compile Include="Mappings\Locations\LocationMapping.cs" />
+    <Compile Include="Mappings\Locations\PointMapping.cs" />
+    <Compile Include="Mappings\ServiceSolicitation\AdvertisementContentMapping.cs" />
+    <Compile Include="Mappings\ServiceSolicitation\AdvertisementMapping.cs" />
+    <Compile Include="Mappings\ServiceSolicitation\ContractModelMapping.cs" />
+    <Compile Include="Mappings\ServiceSolicitation\ServiceSolicitationMapping.cs" />
     <Compile Include="Mappings\Users\AdministratorMapping.cs" />
     <Compile Include="Mappings\Users\AdvertiserMapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AdministratorRepository.cs" />
+    <Compile Include="Repositories\AdvertiserRepository.cs" />
+    <Compile Include="Repositories\ContractModelRepository.cs" />
+    <Compile Include="Repositories\LocationRepository.cs" />
+    <Compile Include="Repositories\ServiceSolicitationRepository.cs" />
+    <Compile Include="Setup.cs" />
     <Compile Include="VoceViuDbContext.cs" />
   </ItemGroup>
   <ItemGroup>

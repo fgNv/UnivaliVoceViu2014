@@ -1,0 +1,19 @@
+﻿@helper NgModelText(string label, string id, string ngModel)
+{
+    <div class="form-group">
+        <label for="@id" class="col-md-2 control-label">@label</label>
+        <div class="col-md-10">
+            <input type="text" id="@id" data-ng-model="@ngModel" class="form-control" />
+        </div>
+    </div>
+}
+
+@helper NgModelPassword(string label, string id, string ngModel)
+{
+    <div class="form-group">
+        <label for="@id" class="col-md-2 control-label">@label</label>
+        <div class="col-md-10">
+            <input type="password" id="@id" data-ng-model="@ngModel" class="form-control" />
+        </div>
+    </div>
+}

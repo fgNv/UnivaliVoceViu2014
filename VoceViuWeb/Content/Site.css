@@ -40,3 +40,15 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
+
+.loading{
+    background-image: url(Images/Loading.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 150;
+	position:absolute; 
+	height:100%; 
+	width: 73%; 
+	opacity: 0.30;
+	background-color:#ddd;
+}

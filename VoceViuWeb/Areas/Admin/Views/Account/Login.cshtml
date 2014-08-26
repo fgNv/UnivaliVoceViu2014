@@ -1,0 +1,22 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml"; ;
+}
+
+<div class="row" data-ng-controller="AdminAuthenticationController">
+    <div class="loading" data-ng-show="pendingRequests > 0"></div>
+    <div class="col-md-8">
+        <section class="form-horizontal">
+            <h2>Login da área administrativa</h2>
+            <hr />
+
+            @MyHelpers.NgModelText("Usuário", "userName", "form.Username")
+            @MyHelpers.NgModelPassword("Senha", "userName", "form.Password")
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="button" class="btn btn-default" data-ng-click="authenticate()">Autenticar</button>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

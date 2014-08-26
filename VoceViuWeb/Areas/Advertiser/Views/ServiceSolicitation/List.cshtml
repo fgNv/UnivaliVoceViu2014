@@ -1,0 +1,30 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Minhas solicitações de serviço";
+}
+
+<div data-ng-controller="myServiceSolicitationController">
+
+    <div class="loading" data-ng-show="pendingRequests > 0"></div>
+    <h2>Minhas solicitações de serviço</h2>
+    <hr />
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Data início</th>
+                <th>Data término</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-ng-repeat="serviceSolicitation in serviceSolicitations">
+                <td>{{serviceSolicitation.Id}}</td>
+                <td>{{serviceSolicitation.StartDate}}</td>
+                <td>{{serviceSolicitation.EndDate}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

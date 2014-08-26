@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Criar conta de anunciante ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<article data-ng-controller="NewAdvertiserAccountController">
+    <div class="loading" data-ng-show="pendingRequests > 0"></div>
+    <section class="form-horizontal">
+        <h2>Criar nova conta de anunciante</h2>
+        <hr />
+
+        @MyHelpers.NgModelText("Nome", "nome", "form.Name")
+        @MyHelpers.NgModelText("E-mail", "email", "form.Email")
+        @MyHelpers.NgModelPassword("Senha", "senha", "form.Password")
+        @MyHelpers.NgModelPassword("Confirmação da senha", "confirmacao", "form.PasswordConfirmation")
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="button" class="btn btn-primary" data-ng-click="submit()">Cadastrar</button>
+            </div>
+        </div>
+    </section>
+</article>
