@@ -200,6 +200,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Api\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdvertisementController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContractModelController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LocationsController.cs" />
@@ -220,7 +221,9 @@
     <Compile Include="Helpers\RequestExtensions.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account\AdvertiserNewAccountRequest.cs" />
-    <Compile Include="Models\Advertisement\SubmitContentRequest.cs" />
+    <Compile Include="Models\Advertisements\AdvertisementStatusViewModel.cs" />
+    <Compile Include="Models\Advertisements\AdvertisementViewModel.cs" />
+    <Compile Include="Models\Advertisements\SubmitContentRequest.cs" />
     <Compile Include="Models\Authentication\AuthenticateRequest.cs" />
     <Compile Include="Models\Authentication\AuthenticateResponse.cs" />
     <Compile Include="Models\Authentication\Implementations\AdministratorStore.cs" />
@@ -235,6 +238,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Scripts\Controllers\AdvertisementManagementController.js" />
     <Content Include="Areas\Admin\Scripts\Controllers\ContractModelController.js" />
     <Content Include="Areas\Admin\Scripts\Controllers\LocationsController.js" />
     <Content Include="Areas\Admin\Scripts\Controllers\ServiceSolicitationManagementController.js" />
@@ -266,6 +270,7 @@
     <Content Include="Scripts\App\Models\NewServiceSolicitation.js" />
     <Content Include="Scripts\App\NotificationHandler.js" />
     <Content Include="Scripts\App\Resources\AccountResource.js" />
+    <Content Include="Scripts\App\Resources\AdvertisementResource.js" />
     <Content Include="Scripts\App\Resources\ContractModelResource.js" />
     <Content Include="Scripts\App\Resources\LocationResource.js" />
     <Content Include="Scripts\App\Resources\ServiceSolicitationResource.js" />
@@ -325,6 +330,7 @@
     <Content Include="Areas\Advertiser\Views\ServiceSolicitation\Create.cshtml" />
     <Content Include="App_Code\MyHelpers.cshtml" />
     <Content Include="Areas\Admin\Views\ServiceSolicitation\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Advertisement\Index.cshtml" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
