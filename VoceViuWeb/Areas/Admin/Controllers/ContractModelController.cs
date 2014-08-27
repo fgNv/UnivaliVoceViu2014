@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using VoceViuWeb.Filters;
-using VoceViuWeb.Models.ContractModel;
+using VoceViuWeb.Models.ContractModels;
 using VoceViuWeb.Services;
 
 namespace VoceViuWeb.Areas.Admin.Controllers

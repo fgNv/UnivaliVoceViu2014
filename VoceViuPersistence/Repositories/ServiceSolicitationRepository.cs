@@ -21,6 +21,9 @@ namespace VoceViuPersistence.Repositories
         public IEnumerable<ServiceSolicitation> GetAll()
         {
             return _context.ServiceSolicitations
+                           .Include(ss => ss.Advertiser)
+                           .Include(ss => ss.ContractModel)
+                           .Include(ss => ss.Location)
                            .Include(ss => ss.Advertisement);
         }
 

@@ -10,6 +10,11 @@
             isArray: false,
             params: { 'action': 'update' }
         },
+        getPendingApproval: {
+            method: "GET",
+            isArray: true,
+            params: { 'action': 'getPendingApproval' }
+        },
         getAll: {
             method: "GET",
             isArray: true,
@@ -24,6 +29,16 @@
             method: "GET",
             isArray: true,
             params: { 'action': 'GetAvailableMonths' }
+        },
+        approve: {
+            method: "POST",
+            isArray: false,
+            params: { 'action': 'Approve' }
+        },
+        deny: {
+            method: "POST",
+            isArray: false,
+            params: { 'action': 'Deny' }
         }
     });
 });

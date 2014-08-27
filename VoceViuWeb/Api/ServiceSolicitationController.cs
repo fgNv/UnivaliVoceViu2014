@@ -10,7 +10,7 @@ using VoceViuModel.ServiceSolicitations.Services;
 using VoceViuWeb.Filters;
 using VoceViuWeb.Services;
 using VoceViuWeb.Helpers;
-using VoceViuWeb.Models.ServiceSolicitation;
+using VoceViuWeb.Models.ServiceSolicitations;
 
 namespace VoceViuWeb.Api
 {
@@ -26,39 +26,41 @@ namespace VoceViuWeb.Api
             _serviceSolicitationService = serviceSolicitationService;
         }
 
-        public IEnumerable<ServiceSolicitation> GetAll()
+        public IEnumerable<ServiceSolicitationViewModel> GetAll()
         {
             var user = HttpContext.Current.User;
 
             if (user.IsAdmin())
-                return _serviceSolicitationRepository.GetAll();
+                return _serviceSolicitationRepository.GetAll()
+                                                     .Select(m => new ServiceSolicitationViewModel(m));
 
-            return _serviceSolicitationRepository.GetByAdvertiser(user.GetUserId());
+            return _serviceSolicitationRepository.GetByAdvertiser(user.GetUserId())
+                                                 .Select(m => new ServiceSolicitationViewModel(m));
+        }
+
+        [AuthorizeByClaim(SignInService.PROFILE_TYPE_ADMIN)]
+        public IEnumerable<ServiceSolicitationViewModel> GetPendingApproval()
+        {
+            return _serviceSolicitationRepository.GetAll()
+                                                 .Where(m => m.Advertisement == null)
+                                                 .Select(m => new ServiceSolicitationViewModel(m));
         }
 
         [AuthorizeByClaimAttribute(SignInService.PROFILE_TYPE_ADMIN)]
-        public void ApproveServiceSolicitation(int id)
+        public void Approve(int id)
         {
             _serviceSolicitationService.Approve(id);
         }
 
+        [AuthorizeByClaimAttribute(SignInService.PROFILE_TYPE_ADMIN)]
+        public void Deny(int id)
+        {
+            _serviceSolicitationService.Deny(id);
+        }
+
         public void Add(CreateServiceSolicitationRequest request)
         {
-            var splittedStartMonth = request.StartMonth.Split('/');
-            var startMonth = Int32.Parse(splittedStartMonth[0]);
-            var startYear = Int32.Parse(splittedStartMonth[1]);
-            var startDate = new DateTime(startYear, startMonth, 1);
-
-            var message = new CreateServiceSolicitationMessage();
-            var user = HttpContext.Current.User;
-
-            message.LocationId = request.LocationId;
-            message.AdvertiserId = user.GetUserId();
-            message.StartDate = startDate;
-            message.EndDate = startDate.AddMonths(request.MonthQuantity);
-            message.ContractModelId = request.ContractModelId;
-
-            _serviceSolicitationService.Create(message);
+            _serviceSolicitationService.Create(request.GetMessage());
         }
 
         [HttpGet]

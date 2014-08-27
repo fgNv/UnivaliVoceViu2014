@@ -187,6 +187,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\AdvertisementController.cs" />
     <Compile Include="Api\ContractModelController.cs" />
     <Compile Include="Api\LocationController.cs" />
     <Compile Include="Api\ServiceSolicitationController.cs" />
@@ -219,6 +220,7 @@
     <Compile Include="Helpers\RequestExtensions.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account\AdvertiserNewAccountRequest.cs" />
+    <Compile Include="Models\Advertisement\SubmitContentRequest.cs" />
     <Compile Include="Models\Authentication\AuthenticateRequest.cs" />
     <Compile Include="Models\Authentication\AuthenticateResponse.cs" />
     <Compile Include="Models\Authentication\Implementations\AdministratorStore.cs" />
@@ -227,6 +229,7 @@
     <Compile Include="Models\NotificationResponse.cs" />
     <Compile Include="Models\ReturnUrlResponse.cs" />
     <Compile Include="Models\ServiceSolicitation\CreateServiceSolicitationRequest.cs" />
+    <Compile Include="Models\ServiceSolicitation\ServiceSolicitationViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\SignInService.cs" />
     <Compile Include="Startup.cs" />
@@ -265,7 +268,7 @@
     <Content Include="Scripts\App\Resources\AccountResource.js" />
     <Content Include="Scripts\App\Resources\ContractModelResource.js" />
     <Content Include="Scripts\App\Resources\LocationResource.js" />
-    <Content Include="Scripts\App\Resources\ServiceSolicitation.js" />
+    <Content Include="Scripts\App\Resources\ServiceSolicitationResource.js" />
     <Content Include="Scripts\Vendors\AngularStrap\angular-animate.js" />
     <Content Include="Scripts\Vendors\AngularStrap\angular-sanitaze.js" />
     <Content Include="Scripts\Vendors\AngularStrap\angular-strap.js" />
@@ -352,11 +355,10 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>35447</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:28188/</IISUrl>
+          <IISUrl>http://localhost:35447/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
+          <CustomServerUrl>http://VoceViu</CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
