@@ -34,6 +34,11 @@ namespace VoceViuWeb.Api
             _advertisementService.ApproveContent(id);
         }
 
+        public void SetAsPaid(int id)
+        {
+            _advertisementService.SetAsPayed(id);
+        }
+
         public IEnumerable<AdvertisementViewModel> GetAll()
         {
             var result = _advertisementRepository.GetAll()

@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Gerenciamento de solicitações de serviço";
+    ViewBag.Title = "Gerenciamento de anúncios contratados";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -9,7 +9,29 @@
     <h2>@ViewBag.Title</h2>
     <hr />
 
-    <table class="table" data-ng-show="advertisements && advertisements.length > 0">
+    <div data-ng-show="contentDenialRequested">
+        <div class="form-horizontal">
+            @MyHelpers.NgModelText("Justificativa da rejeição", "rejeicao", "comment")
+
+            <div class="form-group">
+                <div class="col-md-1 col-md-offset-2">
+                    <button type="button"
+                            class="btn btn-default"
+                            data-dismiss="modal"
+                            data-ng-click="cancelContentDenial()">
+                        Cancelar
+                    </button>
+                </div>
+                <div class="col-md-1">
+                    <button type="button" class="btn btn-primary" data-ng-click="denyContent()">
+                        Rejeitar conteúdo
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table class="table" data-ng-show="pendingRequests == 0 && advertisements.length > 0 && !contentDenialRequested">
         <thead>
             <tr>
                 <th>Id</th>
@@ -23,9 +45,11 @@
                 <td>{{advertisement.Id}}</td>
                 <td>{{advertisement.ServiceSolicitation.StartDate}}</td>
                 <td>{{advertisement.ServiceSolicitation.EndDate}}</td>
-                <td></td>
+                <td>
+                    <button class="btn" data-ng-click="requestContentDenialFeedback(advertisement)">Recusar conteúdo</button>
+                </td>
             </tr>
         </tbody>
     </table>
-    <p data-ng-show="advertisements && advertisements.length == 0">Não há registros a serem exibidos </p>
+    <p data-ng-show="pendingRequests == 0 && advertisements.length == 0">Não há registros a serem exibidos </p>
 </div>

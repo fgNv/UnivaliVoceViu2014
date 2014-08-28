@@ -9,7 +9,7 @@
     <h2>@ViewBag.Title</h2>
     <hr />
 
-    <table class="table" data-ng-show="serviceSolicitations && serviceSolicitations.length > 0">
+    <table class="table" data-ng-show="pendingRequests == 0 && serviceSolicitations.length > 0">
         <thead>
             <tr>
                 <th>Id</th>
@@ -34,5 +34,5 @@
             </tr>
         </tbody>
     </table>
-    <p data-ng-show="serviceSolicitations && serviceSolicitations.length == 0">Não há registros a serem exibidos</p>
+    <p data-ng-show="pendingRequests == 0 && serviceSolicitations.length == 0">Não há registros a serem exibidos</p>
 </div>
