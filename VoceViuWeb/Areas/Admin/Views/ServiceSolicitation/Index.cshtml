@@ -15,6 +15,9 @@
                 <th>Id</th>
                 <th>Data início</th>
                 <th>Data término</th>
+                <th>Anunciante</th>
+                <th>Local</th>
+                <th>Modelo de contrato</th>
                 <th>Ações</th>
             </tr>
         </thead>
@@ -23,6 +26,9 @@
                 <td>{{serviceSolicitation.Id}}</td>
                 <td>{{serviceSolicitation.StartDate}}</td>
                 <td>{{serviceSolicitation.EndDate}}</td>
+                <td>{{serviceSolicitation.Advertiser.Name}}</td>
+                <td>{{serviceSolicitation.Location.Name}}</td>
+                <td>{{serviceSolicitation.ContractModel.Name}}</td>
                 <td>
                     <button type="button" class="btn btn-primary" data-ng-click="approve(serviceSolicitation)">
                         Aprovar

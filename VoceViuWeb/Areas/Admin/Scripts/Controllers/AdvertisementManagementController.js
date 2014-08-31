@@ -27,6 +27,10 @@
 
             };
 
+            $scope.isCurrentStatus = function (advertisement) {
+                return advertisement.Status == $scope.currentStatus;
+            };
+
             $scope.anyEntriesWithCurrentFilter = function () {
                 var advertisements = Enumerable.From($scope.advertisements);
                 return advertisements.Any(function (i) { return i.Status == $scope.currentStatus; });

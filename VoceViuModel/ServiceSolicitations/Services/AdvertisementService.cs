@@ -82,19 +82,19 @@ namespace VoceViuModel.ServiceSolicitations.Services
 
         private void SetVariableStatus(Advertisement advertisement)
         {
-            var allowedStatusesToMethodBeUsed = new[] 
+            var volatileStatuses = new[] 
             {
                 AdvertisementStatus.PendingPayment,
                 AdvertisementStatus.AwaitingExibhitionPeriod,
                 AdvertisementStatus.ExibhitionHappening
             };
 
-            if (!allowedStatusesToMethodBeUsed.Contains(advertisement.Status))
+            if (!volatileStatuses.Contains(advertisement.Status))
                 return;
 
-            if (advertisement.ServiceSolicitation.StartDate < DateTime.Now)
+            if (advertisement.ServiceSolicitation.StartDate > DateTime.Now)
                 advertisement.Status = AdvertisementStatus.AwaitingExibhitionPeriod;
-            else if (advertisement.ServiceSolicitation.EndDate > DateTime.Now)
+            else if (advertisement.ServiceSolicitation.EndDate < DateTime.Now)
                 advertisement.Status = AdvertisementStatus.ExpiredPeriod;
             else
                 advertisement.Status = AdvertisementStatus.ExibhitionHappening;

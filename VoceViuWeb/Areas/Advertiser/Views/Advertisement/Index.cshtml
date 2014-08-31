@@ -58,7 +58,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr data-ng-repeat="advertisement in advertisements  | filter : {Status : currentStatus}">
+                <tr data-ng-repeat="advertisement in advertisements  | filter : isCurrentStatus">
                     <td>{{advertisement.Id}}</td>
                     <td>{{advertisement.ServiceSolicitation.StartDate}}</td>
                     <td>{{advertisement.ServiceSolicitation.EndDate}}</td>

@@ -23,6 +23,10 @@
                         $scope.pendingRequests--;
                     });
             };
+            
+            $scope.isCurrentStatus = function (advertisement) {
+                return advertisement.Status == $scope.currentStatus;
+            };
 
             $scope.submitContent = function () {
                 $scope.pendingRequests++;

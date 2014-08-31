@@ -31,7 +31,7 @@ namespace VoceViuPersistence
                            .FirstOrDefault(a => a.Id == id);
         }
 
-        public IEnumerable<Advertisement> GetAll()
+        private IEnumerable<Advertisement> AllWithAllIncludes()
         {
             return _context.Advertisement
                            .Include(a => a.ServiceSolicitation)
@@ -41,15 +41,15 @@ namespace VoceViuPersistence
                            .Include(a => a.ServiceSolicitation.Location);
         }
 
+        public IEnumerable<Advertisement> GetAll()
+        {
+            return AllWithAllIncludes();
+        }
+
         public IEnumerable<Advertisement> GetByAdvertiser(int id)
         {
-            return _context.Advertisement
-                           .Include(a => a.ServiceSolicitation.Advertiser)
-                           .Include(a => a.Content)
-                           .Where(a => a.ServiceSolicitation.Advertiser.Id == id)
-                           .Include(a => a.ServiceSolicitation)
-                           .Include(a => a.ServiceSolicitation.ContractModel)
-                           .Include(a => a.ServiceSolicitation.Location);
+            return AllWithAllIncludes()
+                           .Where(a => a.ServiceSolicitation.Advertiser.Id == id);
         }
 
         public void SaveChanges()
