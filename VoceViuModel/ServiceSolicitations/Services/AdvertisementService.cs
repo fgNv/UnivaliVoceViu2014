@@ -69,12 +69,28 @@ namespace VoceViuModel.ServiceSolicitations.Services
             _advertisementRepository.SaveChanges();
         }
 
-        public void SetAsPayed(int id)
+        public void SetAsPaid(int id)
         {
             var advertisement = _advertisementRepository.Get(id);
 
             if (advertisement.Status != AdvertisementStatus.PendingPayment)
                 throw new Exception("Não há pagamento pendente desse anúncio");
+
+            SetVariableStatus(advertisement);
+            _advertisementRepository.SaveChanges();
+        }
+
+        private void SetVariableStatus(Advertisement advertisement)
+        {
+            var allowedStatusesToMethodBeUsed = new[] 
+            {
+                AdvertisementStatus.PendingPayment,
+                AdvertisementStatus.AwaitingExibhitionPeriod,
+                AdvertisementStatus.ExibhitionHappening
+            };
+
+            if (!allowedStatusesToMethodBeUsed.Contains(advertisement.Status))
+                return;
 
             if (advertisement.ServiceSolicitation.StartDate < DateTime.Now)
                 advertisement.Status = AdvertisementStatus.AwaitingExibhitionPeriod;
@@ -82,6 +98,15 @@ namespace VoceViuModel.ServiceSolicitations.Services
                 advertisement.Status = AdvertisementStatus.ExpiredPeriod;
             else
                 advertisement.Status = AdvertisementStatus.ExibhitionHappening;
+        }
+
+        public void UpdateStatuses()
+        {
+            var advertisements = _advertisementRepository.GetAll()
+                                                         .Where(a => a.Status == AdvertisementStatus.AwaitingExibhitionPeriod ||
+                                                                     a.Status == AdvertisementStatus.ExibhitionHappening);
+            foreach (var adv in advertisements)
+                SetVariableStatus(adv);
 
             _advertisementRepository.SaveChanges();
         }

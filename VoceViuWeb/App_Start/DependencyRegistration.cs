@@ -17,6 +17,8 @@ using VoceViuWeb.Models.Authentication.Implementations;
 using VoceViuWeb.Services;
 using VoceViuPersistence;
 using VoceViuModel;
+using System.Web.Mvc;
+using SimpleInjector.Integration.Web.Mvc;
 
 namespace VoceViuWeb.App_Start
 {
@@ -40,7 +42,7 @@ namespace VoceViuWeb.App_Start
 
             container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
             GlobalConfiguration.Configuration.DependencyResolver = new SimpleInjectorWebApiDependencyResolver(container);
-
+            DependencyResolver.SetResolver( new SimpleInjectorDependencyResolver(container));
             //container.Verify();
         }
     }

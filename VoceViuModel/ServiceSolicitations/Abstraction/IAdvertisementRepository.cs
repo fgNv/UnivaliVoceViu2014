@@ -12,5 +12,6 @@ namespace VoceViuModel.ServiceSolicitations.Abstraction
         void Add(Advertisement advertisement);
         Advertisement Get(int id);
         IEnumerable<Advertisement> GetAll();
+        IEnumerable<Advertisement> GetByAdvertiser(int id);
     }
 }

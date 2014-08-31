@@ -61,6 +61,9 @@
     <Reference Include="SimpleInjector.Extensions.ExecutionContextScoping">
       <HintPath>..\packages\SimpleInjector.Extensions.ExecutionContextScoping.2.5.2\lib\net45\SimpleInjector.Extensions.ExecutionContextScoping.dll</HintPath>
     </Reference>
+    <Reference Include="SimpleInjector.Extensions.LifetimeScoping">
+      <HintPath>..\packages\SimpleInjector.Extensions.LifetimeScoping.2.5.2\lib\net40-client\SimpleInjector.Extensions.LifetimeScoping.dll</HintPath>
+    </Reference>
     <Reference Include="SimpleInjector.Integration.Web">
       <HintPath>..\packages\SimpleInjector.Integration.Web.2.5.2\lib\net40\SimpleInjector.Integration.Web.dll</HintPath>
     </Reference>
@@ -207,9 +210,12 @@
     <Compile Include="Areas\Admin\Controllers\ServiceSolicitationController.cs" />
     <Compile Include="Areas\Advertiser\AdvertiserAreaRegistration.cs" />
     <Compile Include="Areas\Advertiser\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Advertiser\Controllers\AdvertisementController.cs" />
     <Compile Include="Areas\Advertiser\Controllers\HomeController.cs" />
     <Compile Include="Areas\Advertiser\Controllers\ServiceSolicitationController.cs" />
+    <Compile Include="Areas\Advertiser\Models\SubmitContentRequest.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AttachmentController.cs" />
     <Compile Include="Controllers\Generated\HomeController.cs" />
     <Compile Include="Exceptions\ValidationException.cs" />
     <Compile Include="Filters\AuthorizeByClaimAttribute.cs" />
@@ -219,11 +225,11 @@
     </Compile>
     <Compile Include="Helpers\IPrincipalExtensions.cs" />
     <Compile Include="Helpers\RequestExtensions.cs" />
+    <Compile Include="Helpers\UpdateAdvertisementStatusJob.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account\AdvertiserNewAccountRequest.cs" />
     <Compile Include="Models\Advertisements\AdvertisementStatusViewModel.cs" />
     <Compile Include="Models\Advertisements\AdvertisementViewModel.cs" />
-    <Compile Include="Models\Advertisements\SubmitContentRequest.cs" />
     <Compile Include="Models\Authentication\AuthenticateRequest.cs" />
     <Compile Include="Models\Authentication\AuthenticateResponse.cs" />
     <Compile Include="Models\Authentication\Implementations\AdministratorStore.cs" />
@@ -243,7 +249,8 @@
     <Content Include="Areas\Admin\Scripts\Controllers\LocationsController.js" />
     <Content Include="Areas\Admin\Scripts\Controllers\ServiceSolicitationManagementController.js" />
     <Content Include="Areas\Advertiser\Scripts\Controllers\CreateServiceSolicitationController.js" />
-    <Content Include="Areas\Advertiser\Scripts\Controllers\myServiceSolicitationController.js" />
+    <Content Include="Areas\Advertiser\Scripts\Controllers\MyAdvertisementsController.js" />
+    <Content Include="Areas\Advertiser\Scripts\Controllers\MyServiceSolicitationController.js" />
     <Content Include="Content\AngularStrap\angular-motion.min.css" />
     <Content Include="Content\AngularStrap\bootstrap-additions.min.css" />
     <Content Include="Content\AngularStrap\font-awesome.min.css" />
@@ -313,6 +320,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Attachment\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -331,6 +339,7 @@
     <Content Include="App_Code\MyHelpers.cshtml" />
     <Content Include="Areas\Admin\Views\ServiceSolicitation\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Advertisement\Index.cshtml" />
+    <Content Include="Areas\Advertiser\Views\Advertisement\Index.cshtml" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>

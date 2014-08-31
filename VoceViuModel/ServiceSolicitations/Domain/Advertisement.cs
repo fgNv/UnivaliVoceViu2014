@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,5 +16,10 @@ namespace VoceViuModel.ServiceSolicitations
         public ICollection<AdvertisementContent> DeniedContents { get; set; }
         public Attachment Content { get; set; }
         public ServiceSolicitation ServiceSolicitation { get; set; }
+
+        public Advertisement()
+        {
+            DeniedContents = new Collection<AdvertisementContent>();
+        }
     }
 }

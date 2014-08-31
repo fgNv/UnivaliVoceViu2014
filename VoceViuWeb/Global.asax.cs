@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using VoceViuWeb.App_Start;
+using VoceViuWeb.Helpers;
 
 namespace VoceViuWeb
 {
@@ -21,7 +22,7 @@ namespace VoceViuWeb
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-
+            JobTimer.Start();
         }
     }
 }

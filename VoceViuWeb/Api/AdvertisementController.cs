@@ -10,6 +10,7 @@ using VoceViuModel.ServiceSolicitations.Messages;
 using VoceViuModel.ServiceSolicitations.Services;
 using VoceViuWeb.Models.Advertisements;
 using VoceViuWeb.Models.ServiceSolicitations;
+using VoceViuWeb.Helpers;
 
 namespace VoceViuWeb.Api
 {
@@ -36,17 +37,22 @@ namespace VoceViuWeb.Api
 
         public void SetAsPaid(int id)
         {
-            _advertisementService.SetAsPayed(id);
+            _advertisementService.SetAsPaid(id);
         }
 
         public IEnumerable<AdvertisementViewModel> GetAll()
         {
-            var result = _advertisementRepository.GetAll()
-                                                 .Select(m => new AdvertisementViewModel(m));
-            return result;
+            var user = HttpContext.Current.User;
+
+            if (user.IsAdmin())
+                return _advertisementRepository.GetAll()
+                                               .Select(m => new AdvertisementViewModel(m));
+
+            return _advertisementRepository.GetByAdvertiser(user.GetUserId())
+                                           .Select(m => new AdvertisementViewModel(m));
         }
 
-        public IEnumerable<AdvertisementStatusViewModel> GetAdvertisementStatus()
+        public IEnumerable<AdvertisementStatusViewModel> GetAdvertisementStatuses()
         {
             var result = Enum.GetValues(typeof(AdvertisementStatus))
                              .Cast<AdvertisementStatus>()

@@ -12,8 +12,8 @@ namespace VoceViuWeb.Models.ServiceSolicitations
     public class ServiceSolicitationViewModel
     {
         public int Id { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public string StartDate { get; set; }
+        public string EndDate { get; set; }
         public double MonthlyValue { get; set; }
         public ContractModel ContractModel { get; set; }
         public Location Location { get; set; }
@@ -22,8 +22,8 @@ namespace VoceViuWeb.Models.ServiceSolicitations
         public ServiceSolicitationViewModel(ServiceSolicitation model)
         {
             Id = model.Id;
-            StartDate = model.StartDate;
-            EndDate = model.EndDate;
+            StartDate = String.Format("{0:dd/MM/yyyy}", model.StartDate);
+            EndDate = String.Format("{0:dd/MM/yyyy}", model.EndDate);
             MonthlyValue = model.MonthlyValue;
             ContractModel = model.ContractModel;
             Location = model.Location;

@@ -38,10 +38,16 @@ namespace VoceViuWeb.Api
                                                  .Select(m => new ServiceSolicitationViewModel(m));
         }
 
-        [AuthorizeByClaim(SignInService.PROFILE_TYPE_ADMIN)]
         public IEnumerable<ServiceSolicitationViewModel> GetPendingApproval()
         {
-            return _serviceSolicitationRepository.GetAll()
+            var user = HttpContext.Current.User;
+
+            if (user.IsAdmin())
+                return _serviceSolicitationRepository.GetAll()
+                                                     .Where(m => m.Advertisement == null)
+                                                     .Select(m => new ServiceSolicitationViewModel(m));
+
+            return _serviceSolicitationRepository.GetByAdvertiser(user.GetUserId())
                                                  .Where(m => m.Advertisement == null)
                                                  .Select(m => new ServiceSolicitationViewModel(m));
         }
