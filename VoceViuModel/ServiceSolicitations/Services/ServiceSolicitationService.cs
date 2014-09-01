@@ -58,5 +58,16 @@ namespace VoceViuModel.ServiceSolicitations.Services
             _advertisementRepository.Add(advertisement);
             _serviceSolicitationRepository.SaveChanges();
         }
+
+        public void Deny(int serviceSolicitationId)
+        {
+            var serviceSolicitation = _serviceSolicitationRepository.Get(serviceSolicitationId);
+
+            if (serviceSolicitation.Advertisement != null)
+                throw new Exception("Essa solicitação de serviço já foi aprovada");
+
+            _serviceSolicitationRepository.Remove(serviceSolicitation);
+            _serviceSolicitationRepository.SaveChanges();
+        }
     }
 }

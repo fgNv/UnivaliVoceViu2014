@@ -11,8 +11,9 @@
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gerenciamento<b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="@Url.Action("Index", "ServiceSolicitation", new { Area = "admin" })">Lista de anunciantes</a></li>
-                    <li><a href="#">Lista de solicitações de serviço</a></li>
+                    <li><a href="#">Lista de anunciantes</a></li>
+                    <li><a href="@Url.Action("Index", "ServiceSolicitation", new { Area = "admin" })">Lista de solicitações de serviço</a></li>
+                    <li><a href="@Url.Action("Index", "Advertisement", new { Area = "admin" })">Lista de anúncios</a></li>
                 </ul>
             </li>
             <li class="dropdown">
@@ -35,6 +36,7 @@
                 <ul class="dropdown-menu">
                     <li><a href="@Url.Action("Create", "ServiceSolicitation", new { Area = "advertiser" })">Criar nova solicitação de serviço</a></li>
                     <li><a href="@Url.Action("List", "ServiceSolicitation", new { Area = "advertiser" })">Minhas solicitações de serviço</a></li>
+                    <li><a href="@Url.Action("Index", "Advertisement", new { Area = "advertiser" })">Meus anúncios</a></li>
                 </ul>
             </li>
         }

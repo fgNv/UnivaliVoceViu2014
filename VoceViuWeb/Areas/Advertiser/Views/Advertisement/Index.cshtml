@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = "Meus anúncios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div data-ng-controller="myAdvertisementsController">
+
+    <div class="loading" data-ng-show="pendingRequests > 0"></div>
+    <h2>@ViewBag.Title</h2>
+    <hr />
+
+    <div data-ng-show="contentSubmissionRequested">
+        <form id="contentSubmission" class="form-horizontal" method="post" enctype="multipart/form-data" action="@Url.Action("SubmitContent", "Advertisement", new { Area = "Advertiser" })">
+           
+            <input type="hidden" name="AdvertisementId" value="{{currentAdvertisement.Id}}" />
+
+            <div class="form-group">
+                <input type="file" name="File" />
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-1 col-md-offset-2">
+                    <button type="button"
+                            class="btn btn-default"
+                            data-ng-click="cancelContentSubmission()">
+                        Cancelar
+                    </button>
+                </div>
+                <div class="col-md-1">
+                    <button type="button" class="btn btn-primary" data-ng-click="submitContent()">
+                        Enviar
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div data-ng-hide="contentSubmissionRequested">
+
+        <ul class="nav nav-pills">
+            <li data-ng-repeat="status in advertisementStatuses"
+                data-ng-class="{active : status.Value == currentStatus }">
+                <a href="#" data-ng-click="setCurrentStatus(status)">{{status.Description}}</a>
+            </li>
+        </ul>
+
+        <hr />
+
+        <table class="table" data-ng-show="pendingRequests == 0 && anyEntriesWithCurrentFilter()">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Data início</th>
+                    <th>Data término</th>
+                    <th>Local</th>
+                    <th>Modelo de contrato</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="advertisement in advertisements  | filter : isCurrentStatus">
+                    <td>{{advertisement.Id}}</td>
+                    <td>{{advertisement.ServiceSolicitation.StartDate}}</td>
+                    <td>{{advertisement.ServiceSolicitation.EndDate}}</td>
+                    <td>{{advertisement.ServiceSolicitation.Location.Name}}</td>
+                    <td>{{advertisement.ServiceSolicitation.ContractModel.Name}}</td>
+                    <td>
+                        <button class="btn" data-ng-click="showContentSubmissionForm(advertisement)" data-ng-show="advertisement.Status == 1">
+                            Enviar Conteúdo
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p data-ng-show="pendingRequests == 0 && !anyEntriesWithCurrentFilter()">Não há registros a serem exibidos </p>
+    </div>
+</div>

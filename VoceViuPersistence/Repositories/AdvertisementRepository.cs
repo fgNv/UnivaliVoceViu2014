@@ -27,13 +27,29 @@ namespace VoceViuPersistence
         {
             return _context.Advertisement
                            .Include(a => a.ServiceSolicitation)
+                           .Include(a => a.Content)
                            .FirstOrDefault(a => a.Id == id);
+        }
+
+        private IEnumerable<Advertisement> AllWithAllIncludes()
+        {
+            return _context.Advertisement
+                           .Include(a => a.ServiceSolicitation)
+                           .Include(a => a.ServiceSolicitation.Advertiser)
+                           .Include(a => a.Content)
+                           .Include(a => a.ServiceSolicitation.ContractModel)
+                           .Include(a => a.ServiceSolicitation.Location);
         }
 
         public IEnumerable<Advertisement> GetAll()
         {
-            return _context.Advertisement
-                           .Include(a => a.ServiceSolicitation);
+            return AllWithAllIncludes();
+        }
+
+        public IEnumerable<Advertisement> GetByAdvertiser(int id)
+        {
+            return AllWithAllIncludes()
+                           .Where(a => a.ServiceSolicitation.Advertiser.Id == id);
         }
 
         public void SaveChanges()

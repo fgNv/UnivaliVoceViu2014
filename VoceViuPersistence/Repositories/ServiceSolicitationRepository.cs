@@ -18,10 +18,19 @@ namespace VoceViuPersistence.Repositories
             _context = context;
         }
 
-        public IEnumerable<ServiceSolicitation> GetAll()
+        private IEnumerable<ServiceSolicitation> GetAllWithAllIncludes()
         {
             return _context.ServiceSolicitations
+                           .Include(ss => ss.Advertiser)
+                           .Include(ss => ss.ContractModel)
+                           .Include(ss => ss.Location)
                            .Include(ss => ss.Advertisement);
+        }
+
+
+        public IEnumerable<ServiceSolicitation> GetAll()
+        {
+            return GetAllWithAllIncludes();
         }
 
         public ServiceSolicitation Get(int id)
@@ -58,8 +67,7 @@ namespace VoceViuPersistence.Repositories
 
         public IEnumerable<ServiceSolicitation> GetByAdvertiser(int id)
         {
-            return _context.ServiceSolicitations
-                           .Include(ss => ss.Advertiser)
+            return GetAllWithAllIncludes()
                            .Where(ss => ss.Advertiser.Id == id);
         }
     }

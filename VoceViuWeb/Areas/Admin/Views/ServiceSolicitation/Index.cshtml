@@ -9,12 +9,16 @@
     <h2>@ViewBag.Title</h2>
     <hr />
 
-    <table class="table">
+    <table class="table" data-ng-show="pendingRequests == 0 && serviceSolicitations.length > 0">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Data início</th>
                 <th>Data término</th>
+                <th>Anunciante</th>
+                <th>Local</th>
+                <th>Modelo de contrato</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -22,8 +26,19 @@
                 <td>{{serviceSolicitation.Id}}</td>
                 <td>{{serviceSolicitation.StartDate}}</td>
                 <td>{{serviceSolicitation.EndDate}}</td>
+                <td>{{serviceSolicitation.Advertiser.Name}}</td>
+                <td>{{serviceSolicitation.Location.Name}}</td>
+                <td>{{serviceSolicitation.ContractModel.Name}}</td>
+                <td>
+                    <button type="button" class="btn btn-primary" data-ng-click="approve(serviceSolicitation)">
+                        Aprovar
+                    </button>
+                    <button type="button" class="btn btn-danger" data-ng-click="deny(serviceSolicitation)">
+                        Rejeitar
+                    </button>
+                </td>
             </tr>
         </tbody>
     </table>
-
+    <p data-ng-show="pendingRequests == 0 && serviceSolicitations.length == 0">Não há registros a serem exibidos</p>
 </div>

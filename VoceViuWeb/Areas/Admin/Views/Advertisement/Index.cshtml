@@ -1,0 +1,82 @@
+﻿@{
+    ViewBag.Title = "Gerenciamento de anúncios contratados";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div data-ng-controller="AdvertisementManagementController">
+
+    <div class="loading" data-ng-show="pendingRequests > 0"></div>
+    <h2>@ViewBag.Title</h2>
+    <hr />
+
+    <div data-ng-show="contentDenialRequested">
+        <div class="form-horizontal">
+            @MyHelpers.NgModelText("Justificativa da rejeição", "rejeicao", "comment")
+
+            <div class="form-group">
+                <div class="col-md-1 col-md-offset-2">
+                    <button type="button"
+                            class="btn btn-default"
+                            data-dismiss="modal"
+                            data-ng-click="cancelContentDenial()">
+                        Cancelar
+                    </button>
+                </div>
+                <div class="col-md-1">
+                    <button type="button" class="btn btn-primary" data-ng-click="denyContent()">
+                        Rejeitar conteúdo
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div data-ng-hide="contentDenialRequested">
+
+        <ul class="nav nav-pills">
+            <li data-ng-repeat="status in advertisementStatuses"
+                data-ng-class="{active : status.Value == currentStatus }">
+                <a href="#" data-ng-click="setCurrentStatus(status)">{{status.Description}}</a>
+            </li>
+        </ul>
+
+        <hr />
+
+        <table class="table" data-ng-show="pendingRequests == 0 && anyEntriesWithCurrentFilter()">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Data início</th>
+                    <th>Data término</th>
+                    <th>Local</th>
+                    <th>Modelo de contrato</th>
+                    <th>Anunciante</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="advertisement in advertisements  | filter : isCurrentStatus">
+                    <td>{{advertisement.Id}}</td>
+                    <td>{{advertisement.ServiceSolicitation.StartDate}}</td>
+                    <td>{{advertisement.ServiceSolicitation.EndDate}}</td>
+                    <td>{{advertisement.ServiceSolicitation.Location.Name}}</td>
+                    <td>{{advertisement.ServiceSolicitation.ContractModel.Name}}</td>
+                    <td>{{advertisement.ServiceSolicitation.Advertiser.Name}}</td>
+                    <td>
+                        <button class="btn" data-ng-click="requestContentDenialFeedback(advertisement)" data-ng-show="advertisement.Status == 2">
+                            Recusar conteúdo
+                        </button>
+                        <button class="btn" data-ng-click="approveContent(advertisement)" data-ng-show="advertisement.Status == 2">
+                            Aprovar conteúdo
+                        </button>
+                        <button class="btn" data-ng-click="setAsPaid(advertisement)" data-ng-show="advertisement.Status == 3">
+                            Marcar como pago
+                        </button>
+                        <a href="/Attachment/AdvertisementContent/{{advertisement.Id}}" data-ng-show="advertisement.Status != 1">Baixar conteúdo</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p data-ng-show="pendingRequests == 0 && !anyEntriesWithCurrentFilter()">Não há registros a serem exibidos </p>
+    </div>
+</div>

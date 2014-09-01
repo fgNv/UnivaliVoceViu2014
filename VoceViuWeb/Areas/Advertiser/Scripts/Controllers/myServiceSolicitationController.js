@@ -8,7 +8,7 @@
 
         _loadServiceSolicitations = function () {
             $scope.pendingRequests++;
-            ServiceSolicitationResource.getAll(
+            ServiceSolicitationResource.getPendingApproval(
                 {},
                 function (response) {
                     $scope.pendingRequests--;

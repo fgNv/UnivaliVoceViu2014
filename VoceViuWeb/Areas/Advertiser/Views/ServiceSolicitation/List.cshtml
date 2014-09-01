@@ -16,6 +16,8 @@
                 <th>Id</th>
                 <th>Data início</th>
                 <th>Data término</th>
+                <th>Local</th>
+                <th>Modelo de contrato</th>
             </tr>
         </thead>
         <tbody>
@@ -23,6 +25,8 @@
                 <td>{{serviceSolicitation.Id}}</td>
                 <td>{{serviceSolicitation.StartDate}}</td>
                 <td>{{serviceSolicitation.EndDate}}</td>
+                <td>{{serviceSolicitation.Location.Name}}</td>
+                <td>{{serviceSolicitation.ContractModel.Name}}</td>
             </tr>
         </tbody>
     </table>
