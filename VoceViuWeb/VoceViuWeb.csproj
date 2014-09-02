@@ -190,6 +190,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\AdvertiserController.cs" />
     <Compile Include="Api\AdminContentController.cs" />
     <Compile Include="Api\AdvertisementController.cs" />
     <Compile Include="Api\ContractModelController.cs" />
