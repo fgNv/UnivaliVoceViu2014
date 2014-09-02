@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VoceViuModel.AdminContent.Services;
 using VoceViuModel.Locations.Services;
 using VoceViuModel.ServiceSolicitations.Services;
 using VoceViuModel.Users;
@@ -22,6 +23,7 @@ namespace VoceViuModel
             container.Register<ServiceSolicitationService, ServiceSolicitationService>(lifestyle);
             container.Register<ContractModelService,ContractModelService>(lifestyle);
             container.Register<AdvertisementService, AdvertisementService>(lifestyle);
+            container.Register<ContentServices, ContentServices>(lifestyle);
         }
     }
 }

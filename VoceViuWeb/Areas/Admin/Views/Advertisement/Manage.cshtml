@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "Gerenciamento de conteúdos de reserva";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div data-ng-controller="AdminContentController">
+
+    <div class="loading" data-ng-show="pendingRequests > 0"></div>
+    <h3>@ViewBag.Title</h3>
+
+    <div data-ng-show="contentSubmissionRequested">
+        <form id="contentSubmission" class="form-horizontal" method="post" enctype="multipart/form-data" action="@Url.Action("SubmitContent", "Advertisement", new { Area = "Advertiser" })">
+
+            <div class="form-group">
+                <input type="file" name="File" />
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-1 col-md-offset-2">
+                    <button type="button"
+                            class="btn btn-default"
+                            data-ng-click="contentSubmissionRequested = false">
+                        Cancelar
+                    </button>
+                </div>
+                <div class="col-md-1">
+                    <button type="button" class="btn btn-primary" data-ng-click="submitContent()">
+                        Enviar
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div data-ng-show="!contentSubmissionRequested">
+        <div class="row">
+            <div class="col-md-8">
+                <button class="btn" data-ng-click="contentSubmissionRequested = true">Adicionar Conteúdo</button>
+            </div>
+        </div>
+        <hr />
+
+        <div class="row">
+            <div class="col-md-8">
+                <table class="table" data-ng-show="pendingRequests == 0 && contents.length > 0">
+                    <thead>
+                        <tr>
+                            <th>Conteúdo</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-ng-repeat="content in contents">
+                            <td><a href="/attachment/AdministratorContent/{{content.ContentId}}"> {{content.FileName}}</a></td>
+                            <td>
+                                <button type="button" class="btn btn-danger btn-sm" data-ng-click="remove(content)">Excluir</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p data-ng-show="contents.length == 0 && pendingRequests == 0">Não há conteúdos de reserva cadastrados</p>
+            </div>
+        </div>
+    </div>
+</div>

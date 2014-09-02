@@ -21,10 +21,7 @@
                 <ul class="dropdown-menu">
                     <li><a href="@Url.Action("Index", "Locations", new { Area = "admin" })">Locais</a></li>
                     <li><a href="@Url.Action("Index", "ContractModel", new { Area = "admin" })">Modelo de contrato</a></li>
-                    <li class="divider"></li>
-                    <li><b class="col-md-10">Anúncios do administrador</b></li>
-                    <li><a href="#">Lista de anúncios do administrador</a></li>
-                    <li><a href="#">Cadastrar novo anúncio do administrador</a></li>
+                    <li><a href="@Url.Action("Manage", "Advertisement", new { Area = "admin" })">Anúncios do administrador</a></li>
                 </ul>
             </li>
         }

@@ -72,7 +72,7 @@
                         $scope.pendingRequests--;
                     },
                     function (response) {
-                        var title = "Anúncio marcado como pago com sucesso";
+                        var title = "Falha ao marcar anúncio como pago";
                         if (!response.data.messages) {
                             notificationHandler.AddNotificiation(title, ["Não foi possível conectar ao servidor"], "error");
                             return;

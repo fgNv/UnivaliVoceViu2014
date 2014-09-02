@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VoceViuModel.AdminContent.Abstractions;
 using VoceViuModel.Locations.Abstractions;
 using VoceViuModel.ServiceSolicitations.Abstraction;
 using VoceViuModel.Users.Abstractions;
@@ -25,7 +26,8 @@ namespace VoceViuPersistence
             container.Register<ILocationRepository, LocationRepository>(lifestyle);
             container.Register<IServiceSolicitationRepository, ServiceSolicitationRepository>(lifestyle);
             container.Register<IContractModelRepository, ContractModelRepository>(lifestyle);
-            container.Register<IAdvertisementRepository, AdvertisementRepository>();
+            container.Register<IAdvertisementRepository, AdvertisementRepository>(lifestyle);
+            container.Register<IContentRepository, ContentRepository>(lifestyle);
         }
     }
 }

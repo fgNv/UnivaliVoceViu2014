@@ -12,6 +12,6 @@ namespace VoceViuModel.AdminContent.Abstractions
         void Add(Content content);
         Content Get(int id);
         IEnumerable<Content> GetAll();
-        void Remove(Content location);
+        void Remove(Content content);
     }
 }

@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VoceViuModel.AdminContent;
 using VoceViuModel.Attachments;
 using VoceViuModel.Locations.Domain;
 using VoceViuModel.ServiceSolicitations;
@@ -22,6 +23,7 @@ namespace VoceViuPersistence
         public DbSet<Administrator> Administrators { get; set; }
         public DbSet<Advertiser> Advertisers { get; set; }
         public DbSet<Location> Locations { get; set; }
+        public DbSet<Content> AdminContents { get; set; }
         public DbSet<AdvertisementContent> AdvertisementContents { get; set; }
         public DbSet<Advertisement> Advertisement { get; set; }
         public DbSet<ContractModel> ContractModels { get; set; }
