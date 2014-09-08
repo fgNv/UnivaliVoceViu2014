@@ -25,8 +25,13 @@
                         },2000)
                     },
                     function (response) {
-                        notificationHandler.AddNotificiation("Falha ao realizar cadastro", response.data.Messages, response.data.Type);
                         $scope.pendingRequests--;
+                        var title = "Falha ao realizar cadastro";
+                        if (!response) {
+                            notificationHandler.AddNotificiation(title, "Não foi possível conectar-se ao servidor", "error");
+                            return;
+                        }
+                        notificationHandler.AddNotificiation(title, response.data.Messages, response.data.Type);
                     }
                 );
             };

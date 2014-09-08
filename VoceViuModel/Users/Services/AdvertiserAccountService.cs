@@ -19,8 +19,18 @@ namespace VoceViuModel.Users.Services
             _cryptographyService = cryptographyService;
         }
 
+        private void VerifyIfEmailIsTaken(SaveAdvertiserMessage message)
+        {
+            var isEmailTaken = _advertiserRepository.GetAll()
+                                                    .Any(a => a.Email == message.Email);
+
+            if (isEmailTaken)
+                throw new Exception("Email já utilizado");
+        }
+
         public Advertiser AddNewAdvertiser(SaveAdvertiserMessage message)
         {
+            VerifyIfEmailIsTaken(message);
             var newAdvertiser = new Advertiser();
             newAdvertiser.Name = message.Name;
             newAdvertiser.Password = _cryptographyService.Encrypt(message.Password);
