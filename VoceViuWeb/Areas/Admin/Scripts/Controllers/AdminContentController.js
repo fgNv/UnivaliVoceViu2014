@@ -51,11 +51,11 @@
                 function (response) {
                     $scope.pendingRequests--;
                     var title = "Falha ao enviar conteúdo";
-                    if (!response.data.messages) {
+                    if (!response.data.Messages) {
                         notificationHandler.AddNotificiation(title, ["Não foi possível conectar ao servidor"], "error");
                         return;
                     }
-                    notificationHandler.AddNotificiation(title, response.data.messages, "error");
+                    notificationHandler.AddNotificiation(title, response.data.Messages, "error");
                 });
         };
 

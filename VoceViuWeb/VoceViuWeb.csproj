@@ -194,6 +194,7 @@
     <Compile Include="Api\AdminContentController.cs" />
     <Compile Include="Api\AdvertisementController.cs" />
     <Compile Include="Api\ContractModelController.cs" />
+    <Compile Include="Api\DashboardController.cs" />
     <Compile Include="Api\LocationController.cs" />
     <Compile Include="Api\ServiceSolicitationController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -206,20 +207,23 @@
     <Compile Include="Api\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdvertisementController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdvertiserManagementController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContractModelController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LocationsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ServiceSolicitationController.cs" />
     <Compile Include="Areas\Admin\Models\AddContentRequest.cs" />
+    <Compile Include="Areas\Admin\Models\DashboardViewModel.cs" />
     <Compile Include="Areas\Advertiser\AdvertiserAreaRegistration.cs" />
     <Compile Include="Areas\Advertiser\Controllers\AccountController.cs" />
     <Compile Include="Areas\Advertiser\Controllers\AdvertisementController.cs" />
     <Compile Include="Areas\Advertiser\Controllers\HomeController.cs" />
     <Compile Include="Areas\Advertiser\Controllers\ServiceSolicitationController.cs" />
+    <Compile Include="Areas\Advertiser\Models\DashboardViewModel.cs" />
     <Compile Include="Areas\Advertiser\Models\SubmitContentRequest.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AttachmentController.cs" />
-    <Compile Include="Controllers\Generated\HomeController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Exceptions\ValidationException.cs" />
     <Compile Include="Filters\AuthorizeByClaimAttribute.cs" />
     <Compile Include="Filters\ExceptionHandlerAttribute.cs" />
@@ -244,16 +248,20 @@
     <Compile Include="Models\ServiceSolicitation\CreateServiceSolicitationRequest.cs" />
     <Compile Include="Models\ServiceSolicitation\ServiceSolicitationViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\MailService.cs" />
     <Compile Include="Services\SignInService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Scripts\Controllers\AdminContentController.js" />
+    <Content Include="Areas\Admin\Scripts\Controllers\AdminDashboardController.js" />
     <Content Include="Areas\Admin\Scripts\Controllers\AdvertisementManagementController.js" />
+    <Content Include="Areas\Admin\Scripts\Controllers\AdvertiserManagementController.js" />
     <Content Include="Areas\Admin\Scripts\Controllers\ContractModelController.js" />
     <Content Include="Areas\Admin\Scripts\Controllers\LocationsController.js" />
     <Content Include="Areas\Admin\Scripts\Controllers\ServiceSolicitationManagementController.js" />
     <Content Include="Areas\Advertiser\Scripts\Controllers\CreateServiceSolicitationController.js" />
+    <Content Include="Areas\Advertiser\Scripts\Controllers\AdvertiserDashboardController.js" />
     <Content Include="Areas\Advertiser\Scripts\Controllers\MyAdvertisementsController.js" />
     <Content Include="Areas\Advertiser\Scripts\Controllers\MyServiceSolicitationController.js" />
     <Content Include="Content\AngularStrap\angular-motion.min.css" />
@@ -284,7 +292,9 @@
     <Content Include="Scripts\App\Resources\AccountResource.js" />
     <Content Include="Scripts\App\Resources\AdminContentResource.js" />
     <Content Include="Scripts\App\Resources\AdvertisementResource.js" />
+    <Content Include="Scripts\App\Resources\AdvertiserResource.js" />
     <Content Include="Scripts\App\Resources\ContractModelResource.js" />
+    <Content Include="Scripts\App\Resources\DashboardResource.js" />
     <Content Include="Scripts\App\Resources\LocationResource.js" />
     <Content Include="Scripts\App\Resources\ServiceSolicitationResource.js" />
     <Content Include="Scripts\Vendors\AngularStrap\angular-animate.js" />
@@ -326,6 +336,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Controllers\Generated\" />
     <Folder Include="Views\Attachment\" />
   </ItemGroup>
   <ItemGroup>
@@ -347,6 +358,7 @@
     <Content Include="Areas\Admin\Views\Advertisement\Index.cshtml" />
     <Content Include="Areas\Advertiser\Views\Advertisement\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Advertisement\Manage.cshtml" />
+    <Content Include="Areas\Admin\Views\AdvertiserManagement\Index.cshtml" />
     <None Include="Project_Readme.html" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
   </ItemGroup>

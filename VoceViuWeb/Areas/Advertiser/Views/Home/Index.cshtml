@@ -2,20 +2,31 @@
     ViewBag.Title = "Página inicial do anunciante";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <div class="jumbotron">
     <h1>Você Viu?</h1>
     <p class="lead">Home do anunciante</p>
 </div>
 
-<div class="row">
+<div class="row" data-ng-controller="AdvertiserDashboardController">
+    <div class="loading" data-ng-show="pendingRequests > 0"></div>
     <div class="col-md-4">
-        <h2>Cadastrar novo anúncio</h2>
+        <h2>
+            <a href="@Url.Action("Index", "Advertisement", new { Area="advertiser",InitialFilter="1" })">
+                Há {{data.PendingContentAdvertisementCount}}
+                <span data-ng-hide="data.PendingContentAdvertisementCount == 1"> anúncios pendentes </span>
+                <span data-ng-show="data.PendingContentAdvertisementCount == 1"> anúncio pendente </span>
+                de envio de conteúdo
+            </a>
+        </h2>
     </div>
     <div class="col-md-4">
-        <h2>Há X anúncios pendentes de envio de conteúdo</h2>
-    </div>
-    <div class="col-md-4">
-        <h2>Há X anúncios pendentes de pagamento</h2>
+        <h2>
+            <a href="@Url.Action("Index", "Advertisement", new { Area="advertiser",InitialFilter="3" })">
+                Há {{data.PendingPaymentAdvertisementCount}}
+                <span data-ng-hide="data.PendingPaymentAdvertisementCount == 1"> anúncios pendentes</span>
+                <span data-ng-show="data.PendingPaymentAdvertisementCount == 1"> anúncio pendente</span>
+                de pagamento
+            </a>
+        </h2>
     </div>
 </div>

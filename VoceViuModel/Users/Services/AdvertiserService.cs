@@ -17,7 +17,6 @@ namespace VoceViuModel.Users.Services
 
         }
 
-
         public void Remove(int id)
         {
             var advertiser = _advertiserRepository.Get(id);

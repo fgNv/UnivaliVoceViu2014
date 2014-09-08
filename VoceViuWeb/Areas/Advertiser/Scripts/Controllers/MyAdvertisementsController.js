@@ -16,7 +16,8 @@
                 AdvertisementResource.getStatuses(
                     function (response) {
                         $scope.advertisementStatuses = response;
-                        $scope.currentStatus = response[0].Value;
+                        if (!$scope.currentStatus || $scope.currentStatus == "")
+                            $scope.currentStatus = response[0].Value;
                         $scope.pendingRequests--;
                     },
                     function (response) {
@@ -84,9 +85,22 @@
                 });
             };
 
+            var _verifyInitialFilter = function () {
+                var initialFilterParamKey = "InitialFilter";
+                var queryString = window.location.search;
+                var indexOfinitialFilter = queryString.indexOf(initialFilterParamKey);
+                
+                if (indexOfinitialFilter == -1)
+                    return;
+
+                var initialFilter = queryString.substr(indexOfinitialFilter).split("=")[1];
+                $scope.setCurrentStatus({ Value: initialFilter });
+            };
+
             var _init = function () {
                 _getAdvertisements();
                 _getAdvertisementStatuses();
+                _verifyInitialFilter();
             };
 
             _init();

@@ -8,14 +8,41 @@
     <p class="lead">Home do administrador</p>
 </div>
 
-<div class="row">
+<div class="row" data-ng-controller="AdminDashboardController">
+    <div class="loading" data-ng-show="pendingRequests > 0"></div>
     <div class="col-md-4">
-        <h2>Há X solicitações de serviço pendentes de aprovação</h2>
+        <h2>
+            <a href="@Url.Action("Index", "ServiceSolicitation", new { Area="admin" })">
+                Há {{data.PendingServiceSolicitationsCount}}
+                <span data-ng-hide="data.PendingServiceSolicitationsCount == 1"> solicitações</span>
+                <span data-ng-show="data.PendingServiceSolicitationsCount == 1"> solicitação</span>
+                de serviço
+                <span data-ng-hide="data.PendingServiceSolicitationsCount == 1"> pendentes</span>
+                <span data-ng-show="data.PendingServiceSolicitationsCount == 1"> pendente</span>
+                de aprovação
+            </a>
+        </h2>
     </div>
     <div class="col-md-4">
-        <h2>Há X anúncios pendentes de aprovação de conteúdo</h2>
+        <h2>
+            <a href="@Url.Action("Index", "Advertisement", new { Area="admin",InitialFilter="2" })">
+                Há
+                {{data.PendingContentApprovalAdvertisementsCount}}
+                <span data-ng-hide="data.PendingContentApprovalAdvertisementsCount == 1"> anúncios pendentes</span>
+                <span data-ng-show="data.PendingContentApprovalAdvertisementsCount == 1"> anúncio pendente</span>
+                de aprovação de conteúdo
+            </a>
+        </h2>
     </div>
     <div class="col-md-4">
-        <h2>Há X anúncios pendentes de confirmação de pagamento</h2>
+        <h2>
+            <a href="@Url.Action("Index", "Advertisement", new { Area="admin",InitialFilter="3" })">
+                Há
+                {{data.PendingPaymentAdvertisementsCount}}
+                <span data-ng-hide="data.PendingPaymentAdvertisementsCount == 1"> anúncios pendentes</span>
+                <span data-ng-show="data.PendingPaymentAdvertisementsCount == 1"> anúncio pendente</span>
+                de confirmação de pagamento
+            </a>
+        </h2>
     </div>
 </div>

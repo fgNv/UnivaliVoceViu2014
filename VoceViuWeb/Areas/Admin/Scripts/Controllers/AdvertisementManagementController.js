@@ -18,13 +18,26 @@
                 AdvertisementResource.getStatuses(
                     function (response) {
                         $scope.advertisementStatuses = response;
-                        $scope.currentStatus = response[0].Value;
+                        if (!$scope.currentStatus || $scope.currentStatus == "")
+                            $scope.currentStatus = response[0].Value;
                         $scope.pendingRequests--;
                     },
                     function (response) {
                         $scope.pendingRequests--;
                     });
 
+            };
+
+            var _verifyInitialFilter = function () {
+                var initialFilterParamKey = "InitialFilter";
+                var queryString = window.location.search;
+                var indexOfinitialFilter = queryString.indexOf(initialFilterParamKey);
+
+                if (indexOfinitialFilter == -1)
+                    return;
+
+                var initialFilter = queryString.substr(indexOfinitialFilter).split("=")[1];
+                $scope.setCurrentStatus({ Value: initialFilter });
             };
 
             $scope.isCurrentStatus = function (advertisement) {
@@ -52,11 +65,11 @@
                     },
                     function (response) {
                         var title = "Houve uma falha ao aprovar o conteúdo";
-                        if (!response.data.messages) {
+                        if (!response.data.Messages) {
                             notificationHandler.AddNotificiation(title, ["Não foi possível conectar ao servidor"], "error");
                             return;
                         }
-                        notificationHandler.AddNotificiation(title, response.data.messages, "error");
+                        notificationHandler.AddNotificiation(title, response.data.Messages, "error");
                         $scope.pendingRequests--;
                     });
             };
@@ -73,11 +86,11 @@
                     },
                     function (response) {
                         var title = "Falha ao marcar anúncio como pago";
-                        if (!response.data.messages) {
+                        if (!response.data.Messages) {
                             notificationHandler.AddNotificiation(title, ["Não foi possível conectar ao servidor"], "error");
                             return;
                         }
-                        notificationHandler.AddNotificiation(title, response.data.messages, "error");
+                        notificationHandler.AddNotificiation(title, response.data.Messages, "error");
                         $scope.pendingRequests--;
                     });
             };
@@ -105,11 +118,11 @@
                     },
                     function (response) {
                         var title = "Houve uma falha ao aprovar o conteúdo";
-                        if (!response.data.messages) {
+                        if (!response.data.Messages) {
                             notificationHandler.AddNotificiation(title, ["Não foi possível conectar ao servidor"], "error");
                             return;
                         }
-                        notificationHandler.AddNotificiation(title, response.data.messages, "error");
+                        notificationHandler.AddNotificiation(title, response.data.Messages, "error");
                         $scope.pendingRequests--;
                     });
             };
@@ -129,6 +142,7 @@
             var _init = function () {
                 _getAdvertisements();
                 _getAdvertisementStatuses();
+                _verifyInitialFilter();
             };
 
             _init();

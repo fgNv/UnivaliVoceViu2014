@@ -39,11 +39,11 @@
                 function (response) {
                     $scope.pendingRequests--;
                     var title = "Houve uma falha ao excluir o local";
-                    if (!response.data.messages) {
+                    if (!response.data.Messages) {
                         notificationHandler.AddNotificiation(title, ["Não foi possível conectar ao servidor"], "error");
                         return;
                     }
-                    notificationHandler.AddNotificiation(title, response.data.messages, "error");
+                    notificationHandler.AddNotificiation(title, response.data.Messages, "error");
                 });
         };
 
@@ -98,11 +98,11 @@
                 function (response) {
                     $scope.pendingRequests--;
                     
-                    if (!response.data.messages) {
+                    if (!response.data.Messages) {
                         notificationHandler.AddNotificiation(errorTitle, ["Não foi possível conectar ao servidor"], "error");
                         return;
                     }
-                    notificationHandler.AddNotificiation(errorTitle, response.data.messages, "error");
+                    notificationHandler.AddNotificiation(errorTitle, response.data.Messages, "error");
                 });
         }
 

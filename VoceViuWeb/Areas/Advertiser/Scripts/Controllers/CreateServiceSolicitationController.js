@@ -29,6 +29,10 @@
                     $scope.form,
                     function (response) {
                         notificationHandler.AddSuccessNotificiation("Solicitação de serviço enviada com sucesso");
+                        setTimeout(function () {
+                            window.location = "/advertiser/serviceSolicitation/list";
+                        }, 2000);
+
                         $scope.pendingRequests--;
                     },
                     function (response) {

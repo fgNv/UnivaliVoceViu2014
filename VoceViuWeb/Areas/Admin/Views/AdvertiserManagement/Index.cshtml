@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Gerenciamento de anunciantes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<hr/>
+
+<div data-ng-controller="AdvertiserManagementController">
+    <div class="loading" data-ng-show="pendingRequests > 0"></div>
+    <table class="table" data-ng-show="pendingRequests == 0 && advertisers.length > 0">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-ng-repeat="advertiser in advertisers">
+                <td>{{advertiser.Name}}</td>
+                <td>{{advertiser.Email}}</td>
+                <td>
+                    <button type="button" class="btn btn-danger btn-sm" data-ng-click="remove(advertiser)">Excluir</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p data-ng-show="advertisers.length == 0 && pendingRequests == 0">Não há conteúdos de reserva cadastrados</p>
+</div>

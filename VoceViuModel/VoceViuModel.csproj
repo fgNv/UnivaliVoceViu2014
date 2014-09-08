@@ -75,6 +75,8 @@
     <Compile Include="ServiceSolicitations\Messages\DenyAdvertisementContentMessage.cs" />
     <Compile Include="ServiceSolicitations\Messages\SaveContractModelMessage.cs" />
     <Compile Include="ServiceSolicitations\Messages\SetAdvertisementContentMessage.cs" />
+    <Compile Include="ServiceSolicitations\Queries\PendingContentAdvertisementsPerAdvertiserQuery.cs" />
+    <Compile Include="ServiceSolicitations\Queries\PendingPaymentAdvertisementsPerAdvertiserQuery.cs" />
     <Compile Include="ServiceSolicitations\Services\AdvertisementService.cs" />
     <Compile Include="ServiceSolicitations\Services\ContractModelService.cs" />
     <Compile Include="ServiceSolicitations\Services\ServiceSolicitationService.cs" />
