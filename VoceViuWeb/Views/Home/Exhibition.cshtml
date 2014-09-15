@@ -1,0 +1,49 @@
+﻿
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    
+    <div data-content-container="">
+    
+    </div>
+
+    <input type="hidden" data-spot="" value="@ViewBag.Spot" />
+    <input type="hidden" data-location-id="" value="@ViewBag.LocationId" />
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/utilities")
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/angularStrap")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    <script type="text/javascript">
+
+        var spot = $("[data-spot]").val();
+        var locationId = $("[data-location-id]").val();
+
+        var getData = $.ajax("/api/exhibition/GetConfiguration/" + locationId)
+                       .done(function (response) {
+
+                           var container = $("[data-content-container]");
+                           var items = response.AdvertimentsIds;
+                           var length = items.length;
+                           var currentIndex = 0;
+
+                           setTimeout(function () {
+
+                               container.html("<img src='/attachment/'>");
+
+                               currentIndex++;
+                               if (currentIndex == length)
+                                   currentIndex = 0;
+                           }, spot);
+                       });
+    </script>
+</body>
+</html>

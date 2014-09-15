@@ -21,5 +21,11 @@ namespace VoceViuWeb.Controllers
 
             return Redirect("/advertiser/home/index");
         }
+
+        public ViewResult Exhibition(int id)
+        {
+            ViewBag.LocationId = id;
+            return View();
+        }
     }
 }

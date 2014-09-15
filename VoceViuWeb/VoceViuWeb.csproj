@@ -195,6 +195,7 @@
     <Compile Include="Api\AdvertisementController.cs" />
     <Compile Include="Api\ContractModelController.cs" />
     <Compile Include="Api\DashboardController.cs" />
+    <Compile Include="Api\ExhibitionController.cs" />
     <Compile Include="Api\LocationController.cs" />
     <Compile Include="Api\ServiceSolicitationController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -361,6 +362,7 @@
     <Content Include="Areas\Admin\Views\AdvertiserManagement\Index.cshtml" />
     <None Include="Project_Readme.html" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
+    <Content Include="Views\Home\Exhibition.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VoceViuModel\VoceViuModel.csproj">

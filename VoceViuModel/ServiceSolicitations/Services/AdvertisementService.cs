@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VoceViuModel.Attachments;
+using VoceViuModel.Locations.Domain;
 using VoceViuModel.ServiceSolicitations.Abstraction;
 using VoceViuModel.ServiceSolicitations.Domain;
 using VoceViuModel.ServiceSolicitations.Messages;
@@ -109,6 +110,15 @@ namespace VoceViuModel.ServiceSolicitations.Services
                 SetVariableStatus(adv);
 
             _advertisementRepository.SaveChanges();
+        }
+
+        public IEnumerable<Advertisement> GetExhibitionAdvertisementsByLocation(Location location)
+        {
+            var advertisements = _advertisementRepository.GetAll()
+                                                         .Where(a => a.ServiceSolicitation.Location == location)
+                                                         .Where(a => a.Status == AdvertisementStatus.ExibhitionHappening);
+
+            return advertisements;
         }
     }
 }
